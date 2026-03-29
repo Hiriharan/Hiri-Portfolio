@@ -6,193 +6,191 @@
 <title>Hiriharan Kugadhaas — Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
-:root {
-  --bg:#f7f8fc; --white:#fff; --navy:#1a2744; --navy2:#243156;
-  --blue:#2563eb; --blue-light:#eff4ff; --blue-mid:#dbeafe;
-  --slate:#475569; --muted:#94a3b8; --border:#e2e8f0; --border2:#cbd5e1;
-  --text:#1e293b; --green:#059669; --green-bg:#ecfdf5;
-  --amber:#d97706; --amber-bg:#fffbeb;
-  --shadow:0 1px 3px rgba(0,0,0,.06),0 4px 16px rgba(0,0,0,.04);
-  --shadow-md:0 4px 20px rgba(0,0,0,.08),0 1px 4px rgba(0,0,0,.04);
+:root{
+  --bg:#f7f8fc;--white:#fff;--navy:#1a2744;--navy2:#243156;
+  --blue:#2563eb;--bl:#eff4ff;--bm:#dbeafe;
+  --slate:#475569;--muted:#94a3b8;--border:#e2e8f0;--border2:#cbd5e1;
+  --text:#1e293b;--green:#059669;--green-bg:#ecfdf5;
+  --amber:#d97706;--amber-bg:#fffbeb;
+  --sh:0 1px 3px rgba(0,0,0,.06),0 4px 16px rgba(0,0,0,.04);
+  --shm:0 4px 20px rgba(0,0,0,.08),0 1px 4px rgba(0,0,0,.04);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:400;line-height:1.6;min-height:100vh}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.6;min-height:100vh}
 
 /* NAV */
 nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 1px 8px rgba(0,0,0,.04)}
 .nav-inner{max-width:1060px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:56px}
 .nav-logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:800;color:var(--navy)}
-.nav-links{display:flex;align-items:center;gap:4px}
-.nav-links a{font-size:13px;color:var(--slate);text-decoration:none;padding:6px 12px;border-radius:6px;transition:all .15s;font-weight:500;cursor:pointer}
-.nav-links a:hover{background:var(--bg);color:var(--navy)}
-#edit-toggle{font-size:12px;background:var(--navy);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;transition:all .15s;margin-left:8px}
-#edit-toggle:hover{background:var(--navy2)}
-#edit-toggle.active{background:var(--green)}
+.nav-links{display:flex;gap:4px}
+.nav-btn{font-size:13px;color:var(--slate);background:none;border:none;padding:7px 14px;border-radius:6px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:500;transition:all .15s}
+.nav-btn:hover{background:var(--bg);color:var(--navy)}
+.nav-btn.active{background:var(--navy);color:#fff}
 
 /* HERO */
 .hero{background:var(--white);border-bottom:1px solid var(--border)}
-.hero-inner{max-width:1060px;margin:0 auto;padding:60px 28px 52px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+.hero-inner{max-width:1060px;margin:0 auto;padding:60px 28px 52px;display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap}
 .hero-eyebrow{font-size:12px;font-weight:600;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
 h1{font-family:'Playfair Display',serif;font-size:clamp(34px,5vw,56px);font-weight:800;color:var(--navy);line-height:1.1;letter-spacing:-.02em;margin-bottom:14px}
-.hero-subtitle{font-size:15px;color:var(--slate);margin-bottom:20px;line-height:1.8;max-width:540px}
-.hero-badges{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:26px}
+.hero-sub{font-size:15px;color:var(--slate);margin-bottom:20px;line-height:1.8;max-width:540px}
+.badges{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:26px}
 .badge{font-size:12px;font-weight:600;padding:5px 12px;border-radius:20px}
-.badge-blue{background:var(--blue-light);color:var(--blue);border:1px solid var(--blue-mid)}
-.badge-green{background:var(--green-bg);color:var(--green);border:1px solid #a7f3d0}
-.badge-amber{background:var(--amber-bg);color:var(--amber);border:1px solid #fde68a}
+.b-blue{background:var(--bl);color:var(--blue);border:1px solid var(--bm)}
+.b-green{background:var(--green-bg);color:var(--green);border:1px solid #a7f3d0}
+.b-amber{background:var(--amber-bg);color:var(--amber);border:1px solid #fde68a}
 .hero-links{display:flex;gap:10px;flex-wrap:wrap}
-.btn-primary{background:var(--blue);color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:10px 20px;border-radius:8px;transition:all .15s;display:inline-flex;align-items:center;gap:6px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
-.btn-primary:hover{background:#1d4ed8;transform:translateY(-1px);box-shadow:var(--shadow-md)}
-.btn-outline{background:#fff;color:var(--navy);text-decoration:none;font-size:13px;font-weight:600;padding:10px 20px;border-radius:8px;border:1px solid var(--border2);transition:all .15s;display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-family:'DM Sans',sans-serif}
-.btn-outline:hover{border-color:var(--navy);background:var(--bg)}
-.avatar{width:108px;height:108px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--blue));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:34px;font-weight:800;color:#fff;flex-shrink:0;box-shadow:var(--shadow-md)}
+.btn{font-size:13px;font-weight:600;padding:10px 20px;border-radius:8px;cursor:pointer;font-family:'DM Sans',sans-serif;display:inline-flex;align-items:center;gap:6px;text-decoration:none;transition:all .15s;border:none}
+.btn-p{background:var(--blue);color:#fff}.btn-p:hover{background:#1d4ed8;transform:translateY(-1px)}
+.btn-o{background:#fff;color:var(--navy);border:1px solid var(--border2)}.btn-o:hover{border-color:var(--navy)}
+.avatar{width:108px;height:108px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--blue));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:34px;font-weight:800;color:#fff;flex-shrink:0;box-shadow:var(--shm)}
 
-/* MAIN */
-.main{max-width:1060px;margin:0 auto;padding:32px 28px 80px;display:grid;grid-template-columns:1fr 296px;gap:22px;align-items:start}
-.tab-nav{display:flex;gap:2px;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:4px;margin-bottom:20px;grid-column:1/-1;box-shadow:var(--shadow)}
-.tab-btn{flex:1;font-size:13px;font-weight:600;color:var(--muted);background:transparent;border:none;padding:9px 16px;border-radius:7px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s}
-.tab-btn:hover{color:var(--slate)}
-.tab-btn.active{background:var(--navy);color:#fff}
-.tab-panel{display:none}
-.tab-panel.active{display:contents}
+/* TABS */
+.tab-bar{max-width:1060px;margin:28px auto 0;padding:0 28px}
+.tab-bar-inner{display:flex;gap:2px;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:4px;box-shadow:var(--sh)}
+.tb{flex:1;font-size:13px;font-weight:600;color:var(--muted);background:transparent;border:none;padding:9px 16px;border-radius:7px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s}
+.tb:hover{color:var(--slate)}
+.tb.active{background:var(--navy);color:#fff}
+
+/* PANELS */
+.panel{display:none}
+.panel.active{display:block}
+
+/* PORTFOLIO LAYOUT */
+.pf-layout{max-width:1060px;margin:20px auto 80px;padding:0 28px;display:grid;grid-template-columns:1fr 296px;gap:22px;align-items:start}
+
+/* RESUME LAYOUT */
+.rv-layout{max-width:1060px;margin:20px auto 80px;padding:0 28px}
+.rv-actions{display:flex;gap:10px;margin-bottom:18px}
 
 /* CARD */
-.card{background:var(--white);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:18px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:12px;box-shadow:var(--sh);overflow:hidden;margin-bottom:18px}
 .card:last-child{margin-bottom:0}
-.card-header{padding:16px 22px 13px;border-bottom:1px solid var(--border)}
-.card-title{font-size:12px;font-weight:700;color:var(--navy);letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
-.card-icon{width:22px;height:22px;background:var(--blue-light);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:12px}
-.card-body{padding:18px 22px}
+.ch{padding:16px 22px 13px;border-bottom:1px solid var(--border)}
+.ct{font-size:12px;font-weight:700;color:var(--navy);letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.ci{width:22px;height:22px;background:var(--bl);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:12px}
+.cb{padding:18px 22px}
 .sidebar{display:flex;flex-direction:column}
 
 /* SKILLS */
-.skill-group{margin-bottom:13px}
-.skill-group:last-child{margin-bottom:0}
-.skill-group-label{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
-.skill-tags{display:flex;flex-wrap:wrap;gap:5px}
-.skill-tag{font-size:12px;font-weight:500;color:var(--slate);background:var(--bg);border:1px solid var(--border2);border-radius:6px;padding:3px 9px;transition:all .15s}
+.sg{margin-bottom:13px}.sg:last-child{margin-bottom:0}
+.sgl{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.stags{display:flex;flex-wrap:wrap;gap:5px}
+.stag{font-size:12px;font-weight:500;color:var(--slate);background:var(--bg);border:1px solid var(--border2);border-radius:6px;padding:3px 9px}
 
-/* EXPERIENCE */
-.exp-item{padding:18px 0;border-bottom:1px solid var(--border);position:relative}
-.exp-item:first-child{padding-top:0}
-.exp-item:last-child{border-bottom:none;padding-bottom:0}
-.exp-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:2px}
-.exp-title{font-size:15px;font-weight:700;color:var(--navy)}
-.exp-date{font-size:12px;color:var(--muted);font-weight:500;white-space:nowrap;flex-shrink:0}
-.exp-company{font-size:13px;color:var(--blue);font-weight:500;margin-bottom:7px}
-.exp-bullets{list-style:none}
-.exp-bullets li{font-size:13px;color:var(--slate);line-height:1.75;padding-left:14px;position:relative;margin-bottom:3px}
-.exp-bullets li::before{content:'•';position:absolute;left:0;color:var(--blue)}
+/* EXP */
+.ei{padding:18px 0;border-bottom:1px solid var(--border);position:relative}
+.ei:first-child{padding-top:0}.ei:last-child{border-bottom:none;padding-bottom:0}
+.er{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:2px}
+.et{font-size:15px;font-weight:700;color:var(--navy)}
+.ed{font-size:12px;color:var(--muted);font-weight:500;white-space:nowrap;flex-shrink:0}
+.ec{font-size:13px;color:var(--blue);font-weight:500;margin-bottom:7px}
+.ebl{list-style:none}
+.ebl li{font-size:13px;color:var(--slate);line-height:1.75;padding-left:14px;position:relative;margin-bottom:3px}
+.ebl li::before{content:'•';position:absolute;left:0;color:var(--blue)}
 
 /* PROJECTS */
-.project-item{padding:16px 0;border-bottom:1px solid var(--border);position:relative}
-.project-item:first-child{padding-top:0}
-.project-item:last-child{border-bottom:none;padding-bottom:0}
-.project-name{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:5px}
-.project-meta{font-size:11px;color:var(--muted);margin-bottom:7px;font-weight:500}
-.project-desc{font-size:13px;color:var(--slate);line-height:1.75;margin-bottom:10px}
-.project-stack{display:flex;flex-wrap:wrap;gap:5px}
-.stack-chip{font-size:11px;font-weight:600;color:var(--blue);background:var(--blue-light);border:1px solid var(--blue-mid);border-radius:4px;padding:2px 8px}
+.pi{padding:16px 0;border-bottom:1px solid var(--border);position:relative}
+.pi:first-child{padding-top:0}.pi:last-child{border-bottom:none;padding-bottom:0}
+.pn{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.pm{font-size:11px;color:var(--muted);margin-bottom:6px;font-weight:500}
+.pd{font-size:13px;color:var(--slate);line-height:1.75;margin-bottom:9px}
+.ps{display:flex;flex-wrap:wrap;gap:5px}
+.sc{font-size:11px;font-weight:600;color:var(--blue);background:var(--bl);border:1px solid var(--bm);border-radius:4px;padding:2px 8px}
 
-/* EDUCATION */
-.edu-item{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);position:relative}
-.edu-item:first-child{padding-top:0}
-.edu-item:last-child{border-bottom:none;padding-bottom:0}
-.edu-icon{width:34px;height:34px;background:var(--blue-light);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
-.edu-degree{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:2px}
-.edu-school{font-size:12px;color:var(--blue);font-weight:500;margin-bottom:2px}
-.edu-year{font-size:11px;color:var(--muted)}
+/* EDU */
+.edui{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);position:relative}
+.edui:first-child{padding-top:0}.edui:last-child{border-bottom:none;padding-bottom:0}
+.eduic{width:34px;height:34px;background:var(--bl);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.edud{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:2px}
+.edus{font-size:12px;color:var(--blue);font-weight:500;margin-bottom:2px}
+.eduy{font-size:11px;color:var(--muted)}
 
 /* CERT */
-.cert-item{display:flex;align-items:center;gap:10px;padding:10px 13px;background:var(--bg);border-radius:8px;margin-bottom:7px;border:1px solid var(--border);position:relative}
-.cert-item:last-child{margin-bottom:0}
-.cert-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.dot-green{background:var(--green)}
-.dot-amber{background:var(--amber)}
-.cert-name{font-size:12px;font-weight:600;color:var(--navy);flex:1}
-.cert-status{font-size:11px;color:var(--muted);white-space:nowrap}
+.certi{display:flex;align-items:center;gap:10px;padding:10px 13px;background:var(--bg);border-radius:8px;margin-bottom:7px;border:1px solid var(--border)}
+.certi:last-child{margin-bottom:0}
+.cdot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.dg{background:var(--green)}.da{background:var(--amber)}
+.cn{font-size:12px;font-weight:600;color:var(--navy);flex:1}
+.cs{font-size:11px;color:var(--muted);white-space:nowrap}
 
 /* CONTACT */
-.contact-row{display:flex;align-items:center;gap:10px;margin-bottom:11px}
-.contact-row:last-child{margin-bottom:0}
-.contact-icon{width:30px;height:30px;border-radius:7px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
-.contact-label{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.07em;text-transform:uppercase}
-.contact-value{font-size:12px;color:var(--navy);font-weight:500}
+.cr{display:flex;align-items:center;gap:10px;margin-bottom:11px}
+.cr:last-child{margin-bottom:0}
+.cric{width:30px;height:30px;border-radius:7px;background:var(--bl);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.crl{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.crv{font-size:12px;color:var(--navy);font-weight:500}
 
-/* VOLUNTEERING */
-.vol-item{padding:10px 0;border-bottom:1px solid var(--border);position:relative}
-.vol-item:first-child{padding-top:0}
-.vol-item:last-child{border-bottom:none;padding-bottom:0}
+/* VOL */
+.vi{padding:10px 0}
 
 /* RESUME PAGE */
-.resume-page{background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow-md);padding:52px 56px;max-width:780px;margin:0 auto;grid-column:1/-1}
-.resume-header{border-bottom:2px solid var(--navy);padding-bottom:18px;margin-bottom:22px}
-.resume-name{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--navy);letter-spacing:-.02em;margin-bottom:4px}
-.resume-role{font-size:13px;color:var(--blue);font-weight:600;margin-bottom:10px}
-.resume-contact-line{font-size:12px;color:var(--slate);display:flex;flex-wrap:wrap;gap:14px}
-.resume-section{margin-bottom:19px}
-.resume-section-title{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);border-bottom:1px solid var(--border2);padding-bottom:5px;margin-bottom:11px}
-.resume-exp-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px}
-.resume-exp-title{font-size:13px;font-weight:700;color:var(--navy)}
-.resume-exp-date{font-size:11px;color:var(--muted)}
-.resume-exp-company{font-size:12px;color:var(--blue);font-weight:600;margin-bottom:5px}
-.resume-bullets{list-style:none;padding:0;margin-bottom:11px}
-.resume-bullets li{font-size:12px;color:var(--slate);line-height:1.75;padding-left:14px;position:relative}
-.resume-bullets li::before{content:'•';position:absolute;left:0;color:var(--blue)}
-.resume-skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px}
-.resume-skill-cat{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px}
-.resume-skill-vals{font-size:12px;color:var(--slate)}
-.resume-edu-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;flex-wrap:wrap;gap:4px}
-.resume-edu-degree{font-size:13px;font-weight:700;color:var(--navy)}
-.resume-edu-school{font-size:12px;color:var(--blue)}
-.resume-edu-year{font-size:11px;color:var(--muted);white-space:nowrap;padding-left:10px}
-.resume-actions{display:flex;gap:10px;margin-bottom:18px;grid-column:1/-1}
+.rp{background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:var(--shm);padding:52px 56px;max-width:780px;margin:0 auto}
+.rh{border-bottom:2px solid var(--navy);padding-bottom:18px;margin-bottom:22px}
+.rn{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--navy);letter-spacing:-.02em;margin-bottom:4px}
+.rr{font-size:13px;color:var(--blue);font-weight:600;margin-bottom:10px}
+.rcl{font-size:12px;color:var(--slate);display:flex;flex-wrap:wrap;gap:14px}
+.rs{margin-bottom:19px}
+.rst{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);border-bottom:1px solid var(--border2);padding-bottom:5px;margin-bottom:11px}
+.reh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px;flex-wrap:wrap;gap:4px}
+.ret{font-size:13px;font-weight:700;color:var(--navy)}
+.red{font-size:11px;color:var(--muted)}
+.rec{font-size:12px;color:var(--blue);font-weight:600;margin-bottom:5px}
+.rbl{list-style:none;padding:0;margin-bottom:11px}
+.rbl li{font-size:12px;color:var(--slate);line-height:1.75;padding-left:14px;position:relative}
+.rbl li::before{content:'•';position:absolute;left:0;color:var(--blue)}
+.rsg{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px}
+.rsc{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px}
+.rsv{font-size:12px;color:var(--slate)}
+.rer{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;flex-wrap:wrap;gap:4px}
+.red2{font-size:13px;font-weight:700;color:var(--navy)}
+.res{font-size:12px;color:var(--blue)}
+.rey{font-size:11px;color:var(--muted);white-space:nowrap}
 
-/* EDIT */
-[contenteditable="true"]{outline:none;border-radius:3px;transition:background .15s,box-shadow .15s}
+/* EDIT MODE */
+[contenteditable="true"]{outline:none;transition:background .15s}
 body.editing [contenteditable="true"]{background:#fffbeb;box-shadow:inset 0 0 0 1.5px #fbbf24;cursor:text;border-radius:3px;padding:1px 3px;margin:-1px -3px}
 body.editing [contenteditable="true"]:focus{background:#fef3c7;box-shadow:inset 0 0 0 1.5px #d97706}
-.add-btn{display:none;font-size:12px;font-weight:600;color:var(--blue);background:var(--blue-light);border:1px dashed var(--blue);border-radius:7px;padding:8px 16px;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:12px;width:100%;transition:background .15s}
-.add-btn:hover{background:var(--blue-mid)}
+.add-btn{display:none;font-size:12px;font-weight:600;color:var(--blue);background:var(--bl);border:1px dashed var(--blue);border-radius:7px;padding:8px 16px;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:12px;width:100%}
 body.editing .add-btn{display:block}
-.remove-btn{display:none;position:absolute;top:12px;right:0;background:#fff;border:1px solid var(--border2);color:var(--muted);font-size:11px;cursor:pointer;padding:3px 7px;border-radius:5px;font-family:'DM Sans',sans-serif;transition:all .15s;font-weight:600}
-.remove-btn:hover{color:#dc2626;border-color:#fca5a5;background:#fff5f5}
-body.editing .remove-btn{display:block}
-.add-tag-btn{display:none;font-size:11px;font-weight:600;color:var(--blue);background:var(--blue-light);border:1px dashed var(--blue);border-radius:5px;padding:3px 8px;cursor:pointer;font-family:'DM Sans',sans-serif}
-body.editing .add-tag-btn{display:inline-block}
-body.editing .skill-tag{cursor:pointer}
-body.editing .skill-tag:hover{background:#fff5f5;border-color:#fca5a5;color:#dc2626}
-body.editing .skill-tag:hover::after{content:' ×';font-size:10px}
-#edit-banner{display:none;background:#fffbeb;border-bottom:1px solid #fde68a;padding:10px 28px;font-size:12px;color:#92400e;font-weight:500;text-align:center}
-body.editing #edit-banner{display:block}
-#save-toast{position:fixed;bottom:24px;right:24px;background:var(--green);color:#fff;font-size:12px;font-weight:600;padding:10px 18px;border-radius:8px;z-index:1001;opacity:0;transform:translateY(8px);transition:all .25s;pointer-events:none;box-shadow:var(--shadow-md)}
-#save-toast.show{opacity:1;transform:translateY(0)}
+.rm-btn{display:none;position:absolute;top:12px;right:0;background:#fff;border:1px solid var(--border2);color:var(--muted);font-size:11px;cursor:pointer;padding:3px 7px;border-radius:5px;font-family:'DM Sans',sans-serif;font-weight:600}
+.rm-btn:hover{color:#dc2626;border-color:#fca5a5;background:#fff5f5}
+body.editing .rm-btn{display:block}
+.atb{display:none;font-size:11px;font-weight:600;color:var(--blue);background:var(--bl);border:1px dashed var(--blue);border-radius:5px;padding:3px 8px;cursor:pointer;font-family:'DM Sans',sans-serif}
+body.editing .atb{display:inline-block}
+body.editing .stag{cursor:pointer}
+body.editing .stag:hover{background:#fff5f5;border-color:#fca5a5;color:#dc2626}
+body.editing .stag:hover::after{content:' ×';font-size:10px}
+#eb{display:none;background:#fffbeb;border-bottom:1px solid #fde68a;padding:10px 28px;font-size:12px;color:#92400e;font-weight:500;text-align:center}
+body.editing #eb{display:block}
+#toast{position:fixed;bottom:24px;right:24px;background:var(--green);color:#fff;font-size:12px;font-weight:600;padding:10px 18px;border-radius:8px;z-index:999;opacity:0;transform:translateY(8px);transition:all .25s;pointer-events:none}
+#toast.show{opacity:1;transform:translateY(0)}
 
 @media print{
-  nav,.tab-nav,.resume-actions,#edit-banner{display:none!important}
+  nav,.tab-bar,.rv-actions,#eb{display:none!important}
   body{background:#fff}
-  .main{display:block;padding:0}
-  .resume-page{box-shadow:none;border:none;padding:0;max-width:100%}
-  #tab-resume{display:block!important}
-  #tab-portfolio{display:none!important}
+  .rv-layout{margin:0;padding:0}
+  .rp{box-shadow:none;border:none;padding:20px 0;max-width:100%}
 }
-@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.card{animation:fadeUp .4s ease both}
-@media(max-width:720px){.hero-inner{grid-template-columns:1fr}.avatar{display:none}.main{grid-template-columns:1fr}.resume-page{padding:28px 20px}.resume-skills-grid{grid-template-columns:1fr}}
+@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.card{animation:fu .4s ease both}
+@media(max-width:720px){
+  .hero-inner{flex-direction:column}.avatar{display:none}
+  .pf-layout{grid-template-columns:1fr}
+  .rp{padding:24px 18px}.rsg{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
 
-
-<div id="save-toast">✓ Saved</div>
+<div id="eb">✎ Edit Mode — Click highlighted fields to edit. Ctrl+Shift+E to exit.</div>
+<div id="toast">✓ Saved</div>
 
 <nav>
   <div class="nav-inner">
-    <div class="nav-logo" contenteditable="false">HK.</div>
+    <div class="nav-logo">HK.</div>
     <div class="nav-links">
-      <a onclick="showTab('portfolio')">Portfolio</a>
-      <a onclick="showTab('resume')">Resume</a>
-
+      <button class="nav-btn active" id="nb-portfolio" onclick="showTab('portfolio')">Portfolio</button>
+      <button class="nav-btn" id="nb-resume" onclick="showTab('resume')">Resume</button>
     </div>
   </div>
 </nav>
@@ -201,40 +199,41 @@ body.editing #edit-banner{display:block}
   <div class="hero-inner">
     <div>
       <div class="hero-eyebrow">Cloud &amp; Security Engineer</div>
-      <h1 contenteditable="false">Hiriharan<br>Kugadhaas</h1>
-      <p class="hero-subtitle" contenteditable="false">IT graduate specialising in Security and Cloud Engineering. Hands-on experience deploying cloud-native applications across GCP, AWS, and Azure. Seeking graduate cloud or platform engineering roles in Sydney.</p>
-      <div class="hero-badges">
-        <span class="badge badge-blue">☁ Cloud Engineering</span>
-        <span class="badge badge-blue">🔐 Cybersecurity</span>
-        <span class="badge badge-blue">⚙ DevOps</span>
-        <span class="badge badge-amber">📋 AZ-900 In Progress</span>
-        <span class="badge badge-green">✓ Open to Opportunities</span>
+      <h1>Hiriharan<br>Kugadhaas</h1>
+      <p class="hero-sub">IT graduate specialising in Security and Cloud Engineering. Hands-on experience deploying cloud-native applications across GCP, AWS, and Azure. Seeking graduate cloud or platform engineering roles in Sydney.</p>
+      <div class="badges">
+        <span class="badge b-blue">☁ Cloud Engineering</span>
+        <span class="badge b-blue">🔐 Cybersecurity</span>
+        <span class="badge b-blue">⚙ DevOps</span>
+        <span class="badge b-amber">📋 AZ-900 In Progress</span>
+        <span class="badge b-green">✓ Open to Opportunities</span>
       </div>
       <div class="hero-links">
-        <a class="btn-primary" href="/cdn-cgi/l/email-protection#751d1c071c1d1407141b1e351a0001191a1a1e5b161a18">✉ Contact Me</a>
-        <button class="btn-outline" onclick="showTab('resume')">📄 View Resume</button>
-        <a class="btn-outline" href="https://www.linkedin.com/in/hiriharan-kugadhaas-433035275" target="_blank">↗ LinkedIn</a>
+        <button class="btn btn-p" id="contact-btn">✉ Contact Me</button>
+        <button class="btn btn-o" onclick="showTab('resume')">📄 View Resume</button>
+        <a class="btn btn-o" href="https://www.linkedin.com/in/hiriharan-kugadhaas-433035275" target="_blank" rel="noopener">↗ LinkedIn</a>
       </div>
     </div>
     <div class="avatar">HK</div>
   </div>
 </div>
 
-<div class="main">
-
-  <div class="tab-nav">
-    <button class="tab-btn active" onclick="showTab('portfolio')">Portfolio</button>
-    <button class="tab-btn" onclick="showTab('resume')">📄 Resume</button>
+<div class="tab-bar">
+  <div class="tab-bar-inner">
+    <button class="tb active" id="tb-portfolio" onclick="showTab('portfolio')">Portfolio</button>
+    <button class="tb" id="tb-resume" onclick="showTab('resume')">📄 Resume</button>
   </div>
+</div>
 
-  <!-- PORTFOLIO TAB -->
-  <div class="tab-panel active" id="tab-portfolio">
+<!-- PORTFOLIO PANEL -->
+<div class="panel active" id="panel-portfolio">
+  <div class="pf-layout">
+
     <div>
-
       <!-- ABOUT -->
       <div class="card">
-        <div class="card-header"><div class="card-title"><span class="card-icon">👤</span> About</div></div>
-        <div class="card-body">
+        <div class="ch"><div class="ct"><span class="ci">👤</span> About</div></div>
+        <div class="cb">
           <p style="font-size:14px;color:var(--slate);line-height:1.85;" contenteditable="false">
             IT graduate specialising in Security and Cloud Engineering (ACU, 2025) with hands-on experience deploying cloud-native applications across GCP, AWS, and Azure. I've built an AI-powered cybersecurity detection system, a full-stack tutoring platform, and competed in Kaggle ML competitions. Skilled in Python, Docker, Terraform, CI/CD pipelines, and Linux-based systems. Currently completing AZ-900 and Ethical Hacking certifications, and actively seeking a graduate cloud or platform engineering role.
           </p>
@@ -243,425 +242,306 @@ body.editing #edit-banner{display:block}
 
       <!-- EXPERIENCE -->
       <div class="card">
-        <div class="card-header"><div class="card-title"><span class="card-icon">💼</span> Work Experience</div></div>
-        <div class="card-body">
+        <div class="ch"><div class="ct"><span class="ci">💼</span> Work Experience</div></div>
+        <div class="cb">
           <div id="exp-list">
-
-            <div class="exp-item">
-              <button class="remove-btn" onclick="removeEl(this,'.exp-item')">× Remove</button>
-              <div class="exp-row">
-                <div class="exp-title" contenteditable="false">MHE Operator</div>
-                <div class="exp-date" contenteditable="false">Dec 2025 – Present</div>
-              </div>
-              <div class="exp-company" contenteditable="false">DHL Supply Chain · Sydney, AU</div>
-              <ul class="exp-bullets">
+            <div class="ei">
+              <button class="rm-btn" onclick="rmEl(this,'.ei')">× Remove</button>
+              <div class="er"><div class="et" contenteditable="false">MHE Operator</div><div class="ed" contenteditable="false">Dec 2025 – Present</div></div>
+              <div class="ec" contenteditable="false">DHL Supply Chain · Sydney, AU</div>
+              <ul class="ebl">
                 <li contenteditable="false">Operate forklift and MHE equipment in a high-volume logistics environment, maintaining strict safety and compliance standards.</li>
                 <li contenteditable="false">Collaborate with QA team to ensure stock accuracy and support time-critical distribution workflows.</li>
               </ul>
             </div>
-
-            <div class="exp-item">
-              <button class="remove-btn" onclick="removeEl(this,'.exp-item')">× Remove</button>
-              <div class="exp-row">
-                <div class="exp-title" contenteditable="false">IT Support Technician</div>
-                <div class="exp-date" contenteditable="false">Jan 2025 – Nov 2025</div>
-              </div>
-              <div class="exp-company" contenteditable="false">National Welding and Industrial Supplies · Sydney, AU</div>
-              <ul class="exp-bullets">
-                <li contenteditable="false">Provided onsite IT support for hardware and Windows-based systems, maintaining near-zero downtime across 20+ workstations.</li>
-                <li contenteditable="false">Installed and configured workstations, printers, and networking equipment; diagnosed and resolved system faults independently.</li>
+            <div class="ei">
+              <button class="rm-btn" onclick="rmEl(this,'.ei')">× Remove</button>
+              <div class="er"><div class="et" contenteditable="false">IT Support Technician</div><div class="ed" contenteditable="false">Jan 2025 – Nov 2025</div></div>
+              <div class="ec" contenteditable="false">National Welding and Industrial Supplies · Sydney, AU</div>
+              <ul class="ebl">
+                <li contenteditable="false">Provided onsite IT support maintaining near-zero downtime across 20+ workstations.</li>
+                <li contenteditable="false">Installed and configured workstations, printers, and networking equipment; diagnosed and resolved faults independently.</li>
                 <li contenteditable="false">Assisted with infrastructure support and inventory systems, improving operational efficiency.</li>
               </ul>
             </div>
-
-            <div class="exp-item">
-              <button class="remove-btn" onclick="removeEl(this,'.exp-item')">× Remove</button>
-              <div class="exp-row">
-                <div class="exp-title" contenteditable="false">Operations Contractor</div>
-                <div class="exp-date" contenteditable="false">Aug 2023 – Nov 2025</div>
-              </div>
-              <div class="exp-company" contenteditable="false">Woolworths Group (via ARA) · Sydney, AU</div>
-              <ul class="exp-bullets">
-                <li contenteditable="false">Supervised daily site operations and provided low-level IT support including device troubleshooting and connectivity resolution for retail staff.</li>
+            <div class="ei">
+              <button class="rm-btn" onclick="rmEl(this,'.ei')">× Remove</button>
+              <div class="er"><div class="et" contenteditable="false">Operations Contractor</div><div class="ed" contenteditable="false">Aug 2023 – Nov 2025</div></div>
+              <div class="ec" contenteditable="false">Woolworths Group (via ARA) · Sydney, AU</div>
+              <ul class="ebl">
+                <li contenteditable="false">Supervised daily site operations and provided low-level IT support including device troubleshooting and connectivity resolution.</li>
               </ul>
             </div>
-
-            <div class="exp-item">
-              <button class="remove-btn" onclick="removeEl(this,'.exp-item')">× Remove</button>
-              <div class="exp-row">
-                <div class="exp-title" contenteditable="false">Frontline Sales Executive &amp; IT Support Trainee</div>
-                <div class="exp-date" contenteditable="false">Mar 2021 – Dec 2022</div>
-              </div>
-              <div class="exp-company" contenteditable="false">Chilaw Vision</div>
-              <ul class="exp-bullets">
-                <li contenteditable="false">Delivered customer-facing IT product support and resolved hardware and network issues, building foundational troubleshooting skills.</li>
+            <div class="ei">
+              <button class="rm-btn" onclick="rmEl(this,'.ei')">× Remove</button>
+              <div class="er"><div class="et" contenteditable="false">Frontline Sales &amp; IT Support Trainee</div><div class="ed" contenteditable="false">Mar 2021 – Dec 2022</div></div>
+              <div class="ec" contenteditable="false">Chilaw Vision</div>
+              <ul class="ebl">
+                <li contenteditable="false">Delivered customer-facing IT product support and resolved hardware and network issues.</li>
                 <li contenteditable="false">Maintained up-to-date product and industry knowledge to provide accurate technical guidance.</li>
               </ul>
             </div>
-
           </div>
-          <button class="add-btn" onclick="addExperience()">+ Add Experience</button>
+          <button class="add-btn" onclick="addExp()">+ Add Experience</button>
         </div>
       </div>
 
       <!-- PROJECTS -->
       <div class="card">
-        <div class="card-header"><div class="card-title"><span class="card-icon">🚀</span> Projects</div></div>
-        <div class="card-body">
-          <div id="projects-list">
-
-            <div class="project-item">
-              <button class="remove-btn" onclick="removeEl(this,'.project-item')">× Remove</button>
-              <div class="project-name" contenteditable="false">AI-Powered Cybersecurity Detection System</div>
-              <div class="project-meta" contenteditable="false">ACU · Feb 2025 – Nov 2025</div>
-              <div class="project-desc" contenteditable="false">Deployed a Flask-based real-time network traffic dashboard on GCP handling 10,000+ simulated traffic events per test cycle. Implemented ML models (classification + anomaly detection) achieving ~89% accuracy. Automated cloud deployment pipeline, reducing manual setup time by ~60% through scripted provisioning. Integrated alert generation replicating real-world SOC monitoring workflows.</div>
-              <div class="project-stack"><span class="stack-chip">GCP</span><span class="stack-chip">Flask</span><span class="stack-chip">Python</span><span class="stack-chip">Machine Learning</span><span class="stack-chip">Docker</span><span class="stack-chip">CI/CD</span></div>
+        <div class="ch"><div class="ct"><span class="ci">🚀</span> Projects</div></div>
+        <div class="cb">
+          <div id="proj-list">
+            <div class="pi">
+              <button class="rm-btn" onclick="rmEl(this,'.pi')">× Remove</button>
+              <div class="pn" contenteditable="false">AI-Powered Cybersecurity Detection System</div>
+              <div class="pm" contenteditable="false">ACU · Feb 2025 – Nov 2025</div>
+              <div class="pd" contenteditable="false">Deployed a Flask-based real-time network traffic dashboard on GCP handling 10,000+ simulated traffic events per test cycle. ML models achieved ~89% accuracy identifying malicious traffic. Automated deployment pipeline reduced manual setup by ~60%. Integrated alert generation replicating real-world SOC monitoring workflows.</div>
+              <div class="ps"><span class="sc">GCP</span><span class="sc">Flask</span><span class="sc">Python</span><span class="sc">Machine Learning</span><span class="sc">Docker</span><span class="sc">CI/CD</span></div>
             </div>
-
-            <div class="project-item">
-              <button class="remove-btn" onclick="removeEl(this,'.project-item')">× Remove</button>
-              <div class="project-name" contenteditable="false">Online Tutoring Web Platform</div>
-              <div class="project-meta" contenteditable="false">ACU Internship · Nov 2024 – Jan 2025</div>
-              <div class="project-desc" contenteditable="false">Built and deployed a full-stack responsive web application using ASP.NET, jQuery Mobile, and SQL with secure role-based access control. Implemented mobile-first UI/UX and deployed on Netlify with optimised asset delivery. Integrated user authentication with session management meeting OWASP security guidelines.</div>
-              <div class="project-stack"><span class="stack-chip">ASP.NET</span><span class="stack-chip">SQL</span><span class="stack-chip">jQuery</span><span class="stack-chip">Netlify</span><span class="stack-chip">OWASP</span></div>
+            <div class="pi">
+              <button class="rm-btn" onclick="rmEl(this,'.pi')">× Remove</button>
+              <div class="pn" contenteditable="false">Online Tutoring Web Platform</div>
+              <div class="pm" contenteditable="false">ACU Internship · Nov 2024 – Jan 2025</div>
+              <div class="pd" contenteditable="false">Built and deployed a full-stack responsive web app using ASP.NET, jQuery Mobile, and SQL with role-based access control. Mobile-first UI/UX deployed on Netlify. OWASP-compliant authentication with session management.</div>
+              <div class="ps"><span class="sc">ASP.NET</span><span class="sc">SQL</span><span class="sc">jQuery</span><span class="sc">Netlify</span><span class="sc">OWASP</span></div>
             </div>
-
-            <div class="project-item">
-              <button class="remove-btn" onclick="removeEl(this,'.project-item')">× Remove</button>
-              <div class="project-name" contenteditable="false">Waste Classification — Kaggle Competition</div>
-              <div class="project-meta" contenteditable="false">Aug 2024 – Nov 2024</div>
-              <div class="project-desc" contenteditable="false">Fine-tuned CNN architectures (VGG16, MobileNetV2, VGG19) for multi-class image classification. Applied data augmentation to address class imbalance. Improved F1-score by 18% over baseline through iterative model optimisation and hyperparameter tuning.</div>
-              <div class="project-stack"><span class="stack-chip">Python</span><span class="stack-chip">TensorFlow</span><span class="stack-chip">Keras</span><span class="stack-chip">VGG16</span><span class="stack-chip">CNN</span></div>
+            <div class="pi">
+              <button class="rm-btn" onclick="rmEl(this,'.pi')">× Remove</button>
+              <div class="pn" contenteditable="false">Waste Classification — Kaggle Competition</div>
+              <div class="pm" contenteditable="false">Aug 2024 – Nov 2024</div>
+              <div class="pd" contenteditable="false">Fine-tuned CNN architectures (VGG16, MobileNetV2, VGG19) for multi-class image classification. Applied data augmentation to address class imbalance. Improved F1-score by 18% over baseline through iterative model optimisation.</div>
+              <div class="ps"><span class="sc">Python</span><span class="sc">TensorFlow</span><span class="sc">Keras</span><span class="sc">VGG16</span><span class="sc">CNN</span></div>
             </div>
-
           </div>
-          <button class="add-btn" onclick="addProject()">+ Add Project</button>
+          <button class="add-btn" onclick="addProj()">+ Add Project</button>
         </div>
       </div>
 
       <!-- VOLUNTEERING -->
       <div class="card">
-        <div class="card-header"><div class="card-title"><span class="card-icon">🤝</span> Volunteering</div></div>
-        <div class="card-body">
-          <div class="vol-item">
-            <div class="exp-row">
+        <div class="ch"><div class="ct"><span class="ci">🤝</span> Volunteering</div></div>
+        <div class="cb">
+          <div class="vi">
+            <div class="er">
               <div style="font-size:14px;font-weight:700;color:var(--navy);" contenteditable="false">Carevan Blacktown Inc &amp; CatholicCare Western Sydney</div>
-              <div class="exp-date" contenteditable="false">Jun – Dec 2024</div>
+              <div class="ed" contenteditable="false">Jun – Dec 2024</div>
             </div>
-            <p style="font-size:13px;color:var(--slate);margin-top:5px;line-height:1.7;" contenteditable="false">Contributed to weekly community meal services, food hamper distribution, and family support programs, demonstrating commitment to social responsibility and teamwork.</p>
+            <p style="font-size:13px;color:var(--slate);margin-top:5px;line-height:1.7;" contenteditable="false">Contributed to weekly community meal services, food hamper distribution, and family support programs.</p>
           </div>
         </div>
       </div>
-
     </div>
 
     <!-- SIDEBAR -->
     <div class="sidebar">
-
       <div class="card">
-        <div class="card-header"><div class="card-title"><span class="card-icon">📬</span> Contact</div></div>
-        <div class="card-body">
-          <div class="contact-row"><div class="contact-icon">✉</div><div><div class="contact-label">Email</div><div class="contact-value" contenteditable="false"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="93fbfae1fafbf2e1f2fdf8d3fce6e7fffcfcf8bdf0fcfe">[email&#160;protected]</a></div></div></div>
-          <div class="contact-row"><div class="contact-icon">📱</div><div><div class="contact-label">Phone</div><div class="contact-value" contenteditable="false">+61 491 296 105</div></div></div>
-          <div class="contact-row"><div class="contact-icon">📍</div><div><div class="contact-label">Location</div><div class="contact-value" contenteditable="false">Sydney, NSW, Australia</div></div></div>
-          <div class="contact-row"><div class="contact-icon">🔗</div><div><div class="contact-label">LinkedIn</div><div class="contact-value" contenteditable="false">linkedin.com/in/hiriharan-kugadhaas</div></div></div>
+        <div class="ch"><div class="ct"><span class="ci">📬</span> Contact</div></div>
+        <div class="cb">
+          <div class="cr"><div class="cric">✉</div><div><div class="crl">Email</div><div class="crv" id="sb-email"></div></div></div>
+          <div class="cr"><div class="cric">📱</div><div><div class="crl">Phone</div><div class="crv" contenteditable="false">+61 491 296 105</div></div></div>
+          <div class="cr"><div class="cric">📍</div><div><div class="crl">Location</div><div class="crv" contenteditable="false">Sydney, NSW, Australia</div></div></div>
+          <div class="cr"><div class="cric">🔗</div><div><div class="crl">LinkedIn</div><div class="crv"><a href="https://www.linkedin.com/in/hiriharan-kugadhaas-433035275" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;font-size:12px;font-weight:500;">linkedin.com/in/hiriharan-kugadhaas</a></div></div></div>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-header"><div class="card-title"><span class="card-icon">⚡</span> Technical Skills</div></div>
-        <div class="card-body" id="skills-body">
-          <div class="skill-group"><div class="skill-group-label">Cloud &amp; Infrastructure</div><div class="skill-tags"><span class="skill-tag">Azure</span><span class="skill-tag">AWS</span><span class="skill-tag">GCP</span><span class="skill-tag">IAM</span><span class="skill-tag">Virtual Machines</span><span class="skill-tag">Cloud Networking</span><button class="add-tag-btn" onclick="addTag(this)">+ Add</button></div></div>
-          <div class="skill-group"><div class="skill-group-label">DevOps &amp; Automation</div><div class="skill-tags"><span class="skill-tag">Docker</span><span class="skill-tag">Terraform</span><span class="skill-tag">GitHub Actions</span><span class="skill-tag">Git</span><span class="skill-tag">Linux Shell</span><button class="add-tag-btn" onclick="addTag(this)">+ Add</button></div></div>
-          <div class="skill-group"><div class="skill-group-label">Programming &amp; Data</div><div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">Flask</span><span class="skill-tag">ASP.NET</span><span class="skill-tag">Pandas</span><span class="skill-tag">Scikit-learn</span><button class="add-tag-btn" onclick="addTag(this)">+ Add</button></div></div>
-          <div class="skill-group"><div class="skill-group-label">Cybersecurity</div><div class="skill-tags"><span class="skill-tag">Wireshark</span><span class="skill-tag">Kali Linux</span><span class="skill-tag">Metasploit</span><span class="skill-tag">Penetration Testing</span><button class="add-tag-btn" onclick="addTag(this)">+ Add</button></div></div>
-          <div class="skill-group"><div class="skill-group-label">Networking</div><div class="skill-tags"><span class="skill-tag">TCP/IP</span><span class="skill-tag">DNS</span><span class="skill-tag">DHCP</span><span class="skill-tag">Subnetting</span><button class="add-tag-btn" onclick="addTag(this)">+ Add</button></div></div>
+        <div class="ch"><div class="ct"><span class="ci">⚡</span> Technical Skills</div></div>
+        <div class="cb" id="skills-body">
+          <div class="sg"><div class="sgl">Cloud &amp; Infrastructure</div><div class="stags"><span class="stag">Azure</span><span class="stag">AWS</span><span class="stag">GCP</span><span class="stag">IAM</span><span class="stag">Virtual Machines</span><span class="stag">Cloud Networking</span><button class="atb" onclick="addTag(this)">+ Add</button></div></div>
+          <div class="sg"><div class="sgl">DevOps &amp; Automation</div><div class="stags"><span class="stag">Docker</span><span class="stag">Terraform</span><span class="stag">GitHub Actions</span><span class="stag">Git</span><span class="stag">Linux Shell</span><button class="atb" onclick="addTag(this)">+ Add</button></div></div>
+          <div class="sg"><div class="sgl">Programming &amp; Data</div><div class="stags"><span class="stag">Python</span><span class="stag">SQL</span><span class="stag">Flask</span><span class="stag">ASP.NET</span><span class="stag">Pandas</span><span class="stag">Scikit-learn</span><button class="atb" onclick="addTag(this)">+ Add</button></div></div>
+          <div class="sg"><div class="sgl">Cybersecurity</div><div class="stags"><span class="stag">Wireshark</span><span class="stag">Kali Linux</span><span class="stag">Metasploit</span><span class="stag">Penetration Testing</span><button class="atb" onclick="addTag(this)">+ Add</button></div></div>
+          <div class="sg"><div class="sgl">Networking</div><div class="stags"><span class="stag">TCP/IP</span><span class="stag">DNS</span><span class="stag">DHCP</span><span class="stag">Subnetting</span><button class="atb" onclick="addTag(this)">+ Add</button></div></div>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-header"><div class="card-title"><span class="card-icon">🎓</span> Education</div></div>
-        <div class="card-body" id="edu-list">
-          <div class="edu-item">
-            <button class="remove-btn" style="top:6px;" onclick="removeEl(this,'.edu-item')">× Remove</button>
-            <div class="edu-icon">🎓</div>
-            <div><div class="edu-degree" contenteditable="false">Bachelor of IT</div><div class="edu-school" contenteditable="false">Security &amp; Cloud Engineering · ACU</div><div class="edu-year" contenteditable="false">2022 – 2025</div></div>
+        <div class="ch"><div class="ct"><span class="ci">🎓</span> Education</div></div>
+        <div class="cb" id="edu-list">
+          <div class="edui">
+            <button class="rm-btn" style="top:6px;" onclick="rmEl(this,'.edui')">× Remove</button>
+            <div class="eduic">🎓</div>
+            <div><div class="edud" contenteditable="false">Bachelor of IT</div><div class="edus" contenteditable="false">Security &amp; Cloud Engineering · ACU</div><div class="eduy" contenteditable="false">2022 – 2025</div></div>
           </div>
-          <div class="edu-item">
-            <button class="remove-btn" style="top:6px;" onclick="removeEl(this,'.edu-item')">× Remove</button>
-            <div class="edu-icon">📘</div>
-            <div><div class="edu-degree" contenteditable="false">Diploma of IT</div><div class="edu-school" contenteditable="false">Australian Catholic University</div><div class="edu-year" contenteditable="false">2022 – 2023</div></div>
+          <div class="edui">
+            <button class="rm-btn" style="top:6px;" onclick="rmEl(this,'.edui')">× Remove</button>
+            <div class="eduic">📘</div>
+            <div><div class="edud" contenteditable="false">Diploma of IT</div><div class="edus" contenteditable="false">Australian Catholic University</div><div class="eduy" contenteditable="false">2022 – 2023</div></div>
           </div>
-          <div class="edu-item">
-            <button class="remove-btn" style="top:6px;" onclick="removeEl(this,'.edu-item')">× Remove</button>
-            <div class="edu-icon">📗</div>
-            <div><div class="edu-degree" contenteditable="false">Foundation in Computer Science</div><div class="edu-school" contenteditable="false">Edith Cowan College</div><div class="edu-year" contenteditable="false">2021 – 2022</div></div>
+          <div class="edui">
+            <button class="rm-btn" style="top:6px;" onclick="rmEl(this,'.edui')">× Remove</button>
+            <div class="eduic">📗</div>
+            <div><div class="edud" contenteditable="false">Foundation in Computer Science</div><div class="edus" contenteditable="false">Edith Cowan College</div><div class="eduy" contenteditable="false">2021 – 2022</div></div>
           </div>
-          <button class="add-btn" onclick="addEducation()">+ Add Education</button>
+          <button class="add-btn" onclick="addEdu()">+ Add Education</button>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-header"><div class="card-title"><span class="card-icon">🏅</span> Certifications</div></div>
-        <div class="card-body">
+        <div class="ch"><div class="ct"><span class="ci">🏅</span> Certifications</div></div>
+        <div class="cb">
           <div id="cert-list">
-            <div class="cert-item">
-              <button class="remove-btn" style="top:8px;" onclick="removeEl(this,'.cert-item')">× Remove</button>
-              <div class="cert-dot dot-amber"></div>
-              <div class="cert-name" contenteditable="false">Azure Fundamentals (AZ-900)</div>
-              <div class="cert-status" contenteditable="false">In Progress · 2026</div>
-            </div>
-            <div class="cert-item">
-              <button class="remove-btn" style="top:8px;" onclick="removeEl(this,'.cert-item')">× Remove</button>
-              <div class="cert-dot dot-amber"></div>
-              <div class="cert-name" contenteditable="false">Ethical Hacking</div>
-              <div class="cert-status" contenteditable="false">In Progress · 2026</div>
-            </div>
+            <div class="certi"><button class="rm-btn" style="top:8px;" onclick="rmEl(this,'.certi')">× Remove</button><div class="cdot da"></div><div class="cn" contenteditable="false">Azure Fundamentals (AZ-900)</div><div class="cs" contenteditable="false">In Progress · 2026</div></div>
+            <div class="certi"><button class="rm-btn" style="top:8px;" onclick="rmEl(this,'.certi')">× Remove</button><div class="cdot da"></div><div class="cn" contenteditable="false">Ethical Hacking</div><div class="cs" contenteditable="false">In Progress · 2026</div></div>
           </div>
           <button class="add-btn" onclick="addCert()">+ Add Certification</button>
         </div>
       </div>
-
-    </div>
-  </div><!-- end portfolio panel -->
-
-  <!-- RESUME TAB -->
-  <div class="tab-panel" id="tab-resume">
-    <div class="resume-actions">
-      <button class="btn-primary" onclick="window.print()">🖨 Print / Save as PDF</button>
-
     </div>
 
-    <div class="resume-page">
+  </div>
+</div>
 
-      <div class="resume-header">
-        <div class="resume-name" contenteditable="false">Hiriharan Kugadhaas</div>
-        <div class="resume-role" contenteditable="false">Cloud &amp; Security Engineer — Graduate</div>
-        <div class="resume-contact-line">
-          <span>✉ <span contenteditable="false"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="660e0f140f0e071407080d260913120a09090d4805090b">[email&#160;protected]</a></span></span>
-          <span>📱 <span contenteditable="false">+61 491 296 105</span></span>
-          <span>📍 <span contenteditable="false">Sydney, Australia</span></span>
-          <span>🔗 <span contenteditable="false">linkedin.com/in/hiriharan-kugadhaas-433035275</span></span>
+<!-- RESUME PANEL -->
+<div class="panel" id="panel-resume">
+  <div class="rv-layout">
+    <div class="rv-actions">
+      <button class="btn btn-p" onclick="window.print()">🖨 Print / Save as PDF</button>
+    </div>
+    <div class="rp">
+      <div class="rh">
+        <div class="rn">Hiriharan Kugadhaas</div>
+        <div class="rr">Cloud &amp; Security Engineer — Graduate</div>
+        <div class="rcl">
+          <span>✉ <span id="rv-email"></span></span>
+          <span>📱 +61 491 296 105</span>
+          <span>📍 Sydney, Australia</span>
+          <span>🔗 linkedin.com/in/hiriharan-kugadhaas-433035275</span>
         </div>
       </div>
 
-      <div class="resume-section">
-        <div class="resume-section-title">Professional Summary</div>
-        <p style="font-size:12.5px;color:var(--slate);line-height:1.85;" contenteditable="false">
-          IT graduate specialising in Security and Cloud Engineering with hands-on experience deploying cloud-native applications across GCP, AWS, and Azure. Proven ability to build, automate, and secure infrastructure through academic projects and real-world IT support roles. Currently completing Microsoft Azure Fundamentals (AZ-900) and Ethical Hacking certifications. Looking to bring skills in Python, Docker, Terraform, CI/CD pipelines, and Linux-based systems to a graduate engineering or cloud infrastructure role.
-        </p>
+      <div class="rs">
+        <div class="rst">Professional Summary</div>
+        <p style="font-size:12.5px;color:var(--slate);line-height:1.85;" contenteditable="false">IT graduate specialising in Security and Cloud Engineering with hands-on experience deploying cloud-native applications across GCP, AWS, and Azure. Proven ability to build, automate, and secure infrastructure through academic projects and real-world IT support roles. Currently completing Microsoft Azure Fundamentals (AZ-900) and Ethical Hacking certifications. Looking to bring skills in Python, Docker, Terraform, CI/CD pipelines, and Linux-based systems to a graduate engineering or cloud infrastructure role.</p>
       </div>
 
-      <div class="resume-section">
-        <div class="resume-section-title">Work Experience</div>
-        <div id="resume-exp-list">
+      <div class="rs">
+        <div class="rst">Work Experience</div>
+        <div style="margin-bottom:12px;"><div class="reh"><div class="ret" contenteditable="false">MHE Operator</div><div class="red" contenteditable="false">Dec 2025 – Present</div></div><div class="rec" contenteditable="false">DHL Supply Chain · Sydney, AU</div><ul class="rbl"><li contenteditable="false">Operate forklift and MHE equipment maintaining strict safety and compliance standards.</li><li contenteditable="false">Collaborate with QA team to ensure stock accuracy and support time-critical distribution workflows.</li></ul></div>
+        <div style="margin-bottom:12px;"><div class="reh"><div class="ret" contenteditable="false">IT Support Technician</div><div class="red" contenteditable="false">Jan 2025 – Nov 2025</div></div><div class="rec" contenteditable="false">National Welding and Industrial Supplies · Sydney, AU</div><ul class="rbl"><li contenteditable="false">Provided onsite IT support maintaining near-zero downtime across 20+ workstations.</li><li contenteditable="false">Installed and configured workstations, printers, and networking equipment; resolved faults independently.</li><li contenteditable="false">Assisted with infrastructure support and inventory systems, improving operational efficiency.</li></ul></div>
+        <div style="margin-bottom:12px;"><div class="reh"><div class="ret" contenteditable="false">Operations Contractor</div><div class="red" contenteditable="false">Aug 2023 – Nov 2025</div></div><div class="rec" contenteditable="false">Woolworths Group (via ARA) · Sydney, AU</div><ul class="rbl"><li contenteditable="false">Supervised daily site operations and provided low-level IT support including device troubleshooting for retail staff.</li></ul></div>
+        <div><div class="reh"><div class="ret" contenteditable="false">Frontline Sales &amp; IT Support Trainee</div><div class="red" contenteditable="false">Mar 2021 – Dec 2022</div></div><div class="rec" contenteditable="false">Chilaw Vision</div><ul class="rbl"><li contenteditable="false">Delivered customer-facing IT product support and resolved hardware and network issues.</li><li contenteditable="false">Maintained up-to-date product knowledge to provide accurate technical guidance.</li></ul></div>
+      </div>
 
-          <div style="margin-bottom:13px;">
-            <div class="resume-exp-header">
-              <div class="resume-exp-title" contenteditable="false">MHE Operator</div>
-              <div class="resume-exp-date" contenteditable="false">Dec 2025 – Present</div>
-            </div>
-            <div class="resume-exp-company" contenteditable="false">DHL Supply Chain · Sydney, AU</div>
-            <ul class="resume-bullets">
-              <li contenteditable="false">Operate forklift and MHE equipment in a high-volume logistics environment, maintaining strict safety and compliance standards.</li>
-              <li contenteditable="false">Collaborate with QA team to ensure stock accuracy and support time-critical distribution workflows.</li>
-            </ul>
-          </div>
+      <div class="rs">
+        <div class="rst">Key Projects</div>
+        <div style="margin-bottom:10px;"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;"><strong style="font-size:13px;color:var(--navy);" contenteditable="false">AI-Powered Cybersecurity Detection System</strong><span style="font-size:11px;color:var(--blue);font-weight:600;" contenteditable="false">GCP · Flask · Python · ML</span></div><ul class="rbl" style="margin-top:4px;"><li contenteditable="false">Flask-based real-time network dashboard on GCP handling 10,000+ simulated events; ML models achieved ~89% accuracy.</li><li contenteditable="false">Automated deployment pipeline reduced setup time by ~60%; integrated SOC-style alert generation.</li></ul></div>
+        <div style="margin-bottom:10px;"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;"><strong style="font-size:13px;color:var(--navy);" contenteditable="false">Online Tutoring Web Platform</strong><span style="font-size:11px;color:var(--blue);font-weight:600;" contenteditable="false">ASP.NET · SQL · Netlify</span></div><ul class="rbl" style="margin-top:4px;"><li contenteditable="false">Full-stack responsive web app with role-based access control and OWASP-compliant authentication; deployed on Netlify.</li></ul></div>
+        <div><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;"><strong style="font-size:13px;color:var(--navy);" contenteditable="false">Waste Classification — Kaggle Competition</strong><span style="font-size:11px;color:var(--blue);font-weight:600;" contenteditable="false">Python · TensorFlow · CNN</span></div><ul class="rbl" style="margin-top:4px;"><li contenteditable="false">Fine-tuned VGG16, MobileNetV2, VGG19; improved F1-score by 18% over baseline through iterative optimisation.</li></ul></div>
+      </div>
 
-          <div style="margin-bottom:13px;">
-            <div class="resume-exp-header">
-              <div class="resume-exp-title" contenteditable="false">IT Support Technician</div>
-              <div class="resume-exp-date" contenteditable="false">Jan 2025 – Nov 2025</div>
-            </div>
-            <div class="resume-exp-company" contenteditable="false">National Welding and Industrial Supplies · Sydney, AU</div>
-            <ul class="resume-bullets">
-              <li contenteditable="false">Provided onsite IT support maintaining near-zero downtime across 20+ workstations.</li>
-              <li contenteditable="false">Installed and configured workstations, printers, and networking equipment; diagnosed and resolved system faults independently.</li>
-              <li contenteditable="false">Assisted with infrastructure support and inventory systems, improving operational efficiency.</li>
-            </ul>
-          </div>
-
-          <div style="margin-bottom:13px;">
-            <div class="resume-exp-header">
-              <div class="resume-exp-title" contenteditable="false">Operations Contractor</div>
-              <div class="resume-exp-date" contenteditable="false">Aug 2023 – Nov 2025</div>
-            </div>
-            <div class="resume-exp-company" contenteditable="false">Woolworths Group (via ARA) · Sydney, AU</div>
-            <ul class="resume-bullets">
-              <li contenteditable="false">Supervised daily site operations and provided low-level IT support including device troubleshooting and connectivity resolution for retail staff.</li>
-            </ul>
-          </div>
-
-          <div>
-            <div class="resume-exp-header">
-              <div class="resume-exp-title" contenteditable="false">Frontline Sales Executive &amp; IT Support Trainee</div>
-              <div class="resume-exp-date" contenteditable="false">Mar 2021 – Dec 2022</div>
-            </div>
-            <div class="resume-exp-company" contenteditable="false">Chilaw Vision</div>
-            <ul class="resume-bullets">
-              <li contenteditable="false">Delivered customer-facing IT product support and resolved hardware and network issues.</li>
-              <li contenteditable="false">Maintained up-to-date product knowledge to provide accurate technical guidance.</li>
-            </ul>
-          </div>
-
+      <div class="rs">
+        <div class="rst">Technical Skills</div>
+        <div class="rsg">
+          <div><div class="rsc">Cloud &amp; Infrastructure</div><div class="rsv" contenteditable="false">Azure, AWS, GCP, IAM, Virtual Machines, Cloud Networking</div></div>
+          <div><div class="rsc">DevOps &amp; Automation</div><div class="rsv" contenteditable="false">Docker, Terraform, GitHub Actions (CI/CD), Git, Linux Shell</div></div>
+          <div><div class="rsc">Programming &amp; Data</div><div class="rsv" contenteditable="false">Python, SQL, Flask, ASP.NET, Pandas, NumPy, Scikit-learn</div></div>
+          <div><div class="rsc">Cybersecurity</div><div class="rsv" contenteditable="false">Wireshark, Kali Linux, Metasploit, Penetration Testing</div></div>
+          <div><div class="rsc">Networking</div><div class="rsv" contenteditable="false">TCP/IP, DNS, DHCP, Subnetting, Network Troubleshooting</div></div>
+          <div><div class="rsc">Operating Systems</div><div class="rsv" contenteditable="false">Linux (Ubuntu / Kali), Windows Server</div></div>
         </div>
       </div>
 
-      <div class="resume-section">
-        <div class="resume-section-title">Key Projects</div>
-        <div id="resume-proj-list">
-
-          <div style="margin-bottom:11px;">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:5px;">
-              <strong style="font-size:13px;color:var(--navy);" contenteditable="false">AI-Powered Cybersecurity Detection System</strong>
-              <span style="font-size:11px;color:var(--blue);font-weight:600;" contenteditable="false">GCP · Flask · Python · ML · Feb–Nov 2025</span>
-            </div>
-            <ul class="resume-bullets" style="margin-top:4px;">
-              <li contenteditable="false">Deployed Flask-based real-time network traffic dashboard on GCP handling 10,000+ simulated events per test cycle.</li>
-              <li contenteditable="false">ML models achieved ~89% accuracy in identifying malicious traffic; automated deployment pipeline cut setup time by ~60%.</li>
-            </ul>
-          </div>
-
-          <div style="margin-bottom:11px;">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:5px;">
-              <strong style="font-size:13px;color:var(--navy);" contenteditable="false">Online Tutoring Web Platform</strong>
-              <span style="font-size:11px;color:var(--blue);font-weight:600;" contenteditable="false">ASP.NET · SQL · Netlify · Nov 2024–Jan 2025</span>
-            </div>
-            <ul class="resume-bullets" style="margin-top:4px;">
-              <li contenteditable="false">Built full-stack responsive web app with role-based access control, OWASP-compliant authentication, deployed on Netlify.</li>
-            </ul>
-          </div>
-
-          <div>
-            <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:5px;">
-              <strong style="font-size:13px;color:var(--navy);" contenteditable="false">Waste Classification — Kaggle Competition</strong>
-              <span style="font-size:11px;color:var(--blue);font-weight:600;" contenteditable="false">Python · TensorFlow · CNN · Aug–Nov 2024</span>
-            </div>
-            <ul class="resume-bullets" style="margin-top:4px;">
-              <li contenteditable="false">Fine-tuned VGG16, MobileNetV2, VGG19 for image classification; improved F1-score by 18% over baseline.</li>
-            </ul>
-          </div>
-
-        </div>
+      <div class="rs">
+        <div class="rst">Education</div>
+        <div class="rer"><div><div class="red2" contenteditable="false">Bachelor of IT — Security &amp; Cloud Engineering</div><div class="res" contenteditable="false">Australian Catholic University</div></div><div class="rey" contenteditable="false">2022 – 2025</div></div>
+        <div class="rer"><div><div class="red2" contenteditable="false">Diploma of Information Technology</div><div class="res" contenteditable="false">Australian Catholic University</div></div><div class="rey" contenteditable="false">2022 – 2023</div></div>
+        <div class="rer"><div><div class="red2" contenteditable="false">Foundation in Computer Science</div><div class="res" contenteditable="false">Edith Cowan College</div></div><div class="rey" contenteditable="false">2021 – 2022</div></div>
       </div>
 
-      <div class="resume-section">
-        <div class="resume-section-title">Technical Skills</div>
-        <div class="resume-skills-grid">
-          <div><div class="resume-skill-cat">Cloud &amp; Infrastructure</div><div class="resume-skill-vals" contenteditable="false">Azure, AWS, GCP, IAM, Virtual Machines, Cloud Networking</div></div>
-          <div><div class="resume-skill-cat">DevOps &amp; Automation</div><div class="resume-skill-vals" contenteditable="false">Docker, Terraform, GitHub Actions (CI/CD), Git, Linux Shell</div></div>
-          <div><div class="resume-skill-cat">Programming &amp; Data</div><div class="resume-skill-vals" contenteditable="false">Python, SQL, Flask, ASP.NET, Pandas, NumPy, Scikit-learn</div></div>
-          <div><div class="resume-skill-cat">Cybersecurity</div><div class="resume-skill-vals" contenteditable="false">Wireshark, Kali Linux, Metasploit, Penetration Testing</div></div>
-          <div><div class="resume-skill-cat">Networking</div><div class="resume-skill-vals" contenteditable="false">TCP/IP, DNS, DHCP, Subnetting, Network Troubleshooting</div></div>
-          <div><div class="resume-skill-cat">Operating Systems</div><div class="resume-skill-vals" contenteditable="false">Linux (Ubuntu / Kali), Windows Server</div></div>
-        </div>
+      <div class="rs" style="margin-bottom:0">
+        <div class="rst">Certifications</div>
+        <p style="font-size:12.5px;color:var(--slate);" contenteditable="false">Microsoft Azure Fundamentals (AZ-900) — In Progress 2026 &nbsp;|&nbsp; Ethical Hacking — In Progress 2026</p>
       </div>
+    </div>
+  </div>
+</div>
 
-      <div class="resume-section">
-        <div class="resume-section-title">Education</div>
-        <div class="resume-edu-row">
-          <div><div class="resume-edu-degree" contenteditable="false">Bachelor of IT — Security &amp; Cloud Engineering</div><div class="resume-edu-school" contenteditable="false">Australian Catholic University</div></div>
-          <div class="resume-edu-year" contenteditable="false">2022 – 2025</div>
-        </div>
-        <div class="resume-edu-row">
-          <div><div class="resume-edu-degree" contenteditable="false">Diploma of Information Technology</div><div class="resume-edu-school" contenteditable="false">Australian Catholic University</div></div>
-          <div class="resume-edu-year" contenteditable="false">2022 – 2023</div>
-        </div>
-        <div class="resume-edu-row">
-          <div><div class="resume-edu-degree" contenteditable="false">Foundation in Computer Science</div><div class="resume-edu-school" contenteditable="false">Edith Cowan College</div></div>
-          <div class="resume-edu-year" contenteditable="false">2021 – 2022</div>
-        </div>
-      </div>
+<script>
+// Set email safely via JS (bypasses any email obfuscation)
+var _e = ['hiriharank','outlook.com'].join('@');
+document.getElementById('sb-email').innerHTML = '<a href="mailto:'+_e+'" style="color:var(--navy);text-decoration:none;font-size:12px;font-weight:500;">'+_e+'</a>';
+document.getElementById('rv-email').textContent = _e;
+document.getElementById('contact-btn').onclick = function(){ window.location.href = 'mailto:' + _e; };
 
-      <div class="resume-section" style="margin-bottom:0">
-        <div class="resume-section-title">Certifications</div>
-        <p style="font-size:12.5px;color:var(--slate);" contenteditable="false">
-          Microsoft Azure Fundamentals (AZ-900) — In Progress 2026 &nbsp;|&nbsp; Ethical Hacking — In Progress 2026
-        </p>
-      </div>
-
-    </div><!-- end resume-page -->
-  </div><!-- end resume tab -->
-
-</div><!-- end main -->
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-function showTab(name){
-  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('tab-'+name).classList.add('active');
-  document.querySelectorAll('.tab-btn').forEach(b=>{
-    if((name==='portfolio'&&b.textContent==='Portfolio')||(name==='resume'&&b.textContent.includes('Resume')))b.classList.add('active');
-  });
+// TAB SWITCHING
+function showTab(name) {
+  document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.tb').forEach(function(b){ b.classList.remove('active'); });
+  document.querySelectorAll('.nav-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById('panel-' + name).classList.add('active');
+  document.getElementById('tb-' + name).classList.add('active');
+  document.getElementById('nb-' + name).classList.add('active');
 }
-// Secret edit mode: Ctrl+Shift+E
-document.addEventListener('keydown',e=>{if(e.ctrlKey&&e.shiftKey&&e.key==='E')toggleEdit();});
+
+// SECRET EDIT MODE (Ctrl+Shift+E)
+document.addEventListener('keydown', function(e){
+  if(e.ctrlKey && e.shiftKey && e.key === 'E') toggleEdit();
+});
 function toggleEdit(){
-  const on=document.body.classList.toggle('editing');
-
-  document.querySelectorAll('[contenteditable]').forEach(el=>el.contentEditable=on?'true':'false');
-  if(!on){saveAll();showToast();}
+  var on = document.body.classList.toggle('editing');
+  document.querySelectorAll('[contenteditable]').forEach(function(el){ el.contentEditable = on ? 'true' : 'false'; });
+  if(!on){ saveAll(); showToast(); }
 }
+
+// SAVE / LOAD
 function saveAll(){
-  const d={};
-  ['exp-list','projects-list','edu-list','cert-list','skills-body','resume-exp-list','resume-proj-list'].forEach(id=>{
-    const el=document.getElementById(id);if(el)d[id]=el.innerHTML;
+  var d = {};
+  ['exp-list','proj-list','edu-list','cert-list','skills-body'].forEach(function(id){
+    var el = document.getElementById(id); if(el) d[id] = el.innerHTML;
   });
-  document.querySelectorAll('[contenteditable]').forEach((el,i)=>d['ce'+i]=el.innerHTML);
-  try{localStorage.setItem('hiri_pf4',JSON.stringify(d));}catch(e){}
+  document.querySelectorAll('[contenteditable]').forEach(function(el,i){ d['ce'+i] = el.innerHTML; });
+  try{ localStorage.setItem('hiri5', JSON.stringify(d)); }catch(e){}
 }
 function loadAll(){
   try{
-    const raw=localStorage.getItem('hiri_pf4');if(!raw)return;
-    const d=JSON.parse(raw);
-    ['exp-list','projects-list','edu-list','cert-list','skills-body','resume-exp-list','resume-proj-list'].forEach(id=>{
-      const el=document.getElementById(id);if(el&&d[id])el.innerHTML=d[id];
+    var raw = localStorage.getItem('hiri5'); if(!raw) return;
+    var d = JSON.parse(raw);
+    ['exp-list','proj-list','edu-list','cert-list','skills-body'].forEach(function(id){
+      var el = document.getElementById(id); if(el && d[id]) el.innerHTML = d[id];
     });
   }catch(e){}
 }
 loadAll();
+
 function showToast(){
-  const t=document.getElementById('save-toast');
-  t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);
+  var t = document.getElementById('toast');
+  t.classList.add('show'); setTimeout(function(){ t.classList.remove('show'); }, 2500);
 }
-function removeEl(btn,sel){
-  if(confirm('Remove this item?')){btn.closest(sel).remove();saveAll();}
-}
+function rmEl(btn, sel){ if(confirm('Remove?')){ btn.closest(sel).remove(); saveAll(); } }
 function addTag(btn){
-  const name=prompt('Enter skill:');if(!name)return;
-  const t=document.createElement('span');t.className='skill-tag';t.textContent=name;
-  btn.parentElement.insertBefore(t,btn);saveAll();
+  var n = prompt('Skill name:'); if(!n) return;
+  var t = document.createElement('span'); t.className = 'stag'; t.textContent = n;
+  btn.parentElement.insertBefore(t, btn); saveAll();
 }
-document.addEventListener('click',e=>{
-  if(document.body.classList.contains('editing')&&e.target.classList.contains('skill-tag')){
-    if(confirm('Remove this skill?')){e.target.remove();saveAll();}
+document.addEventListener('click', function(e){
+  if(document.body.classList.contains('editing') && e.target.classList.contains('stag')){
+    if(confirm('Remove skill?')){ e.target.remove(); saveAll(); }
   }
 });
-function addExperience(){
-  const div=document.createElement('div');div.className='exp-item';
-  div.innerHTML=`<button class="remove-btn" onclick="removeEl(this,'.exp-item')">× Remove</button>
-    <div class="exp-row"><div class="exp-title" contenteditable="true">Job Title</div><div class="exp-date" contenteditable="true">Month Year – Month Year</div></div>
-    <div class="exp-company" contenteditable="true">Company · Location</div>
-    <ul class="exp-bullets"><li contenteditable="true">Key responsibility or achievement.</li></ul>`;
-  document.getElementById('exp-list').appendChild(div);
+function addExp(){
+  var d = document.createElement('div'); d.className = 'ei';
+  d.innerHTML = '<button class="rm-btn" onclick="rmEl(this,\'.ei\')">× Remove</button><div class="er"><div class="et" contenteditable="true">Job Title</div><div class="ed" contenteditable="true">Year – Year</div></div><div class="ec" contenteditable="true">Company · Location</div><ul class="ebl"><li contenteditable="true">Key responsibility.</li></ul>';
+  document.getElementById('exp-list').appendChild(d);
 }
-function addProject(){
-  const div=document.createElement('div');div.className='project-item';
-  div.innerHTML=`<button class="remove-btn" onclick="removeEl(this,'.project-item')">× Remove</button>
-    <div class="project-name" contenteditable="true">Project Name</div>
-    <div class="project-meta" contenteditable="true">Context · Dates</div>
-    <div class="project-desc" contenteditable="true">Describe the project and your role.</div>
-    <div class="project-stack"><span class="stack-chip">Tech</span></div>`;
-  document.getElementById('projects-list').appendChild(div);
+function addProj(){
+  var d = document.createElement('div'); d.className = 'pi';
+  d.innerHTML = '<button class="rm-btn" onclick="rmEl(this,\'.pi\')">× Remove</button><div class="pn" contenteditable="true">Project Name</div><div class="pm" contenteditable="true">Context · Dates</div><div class="pd" contenteditable="true">Description.</div><div class="ps"><span class="sc">Tech</span></div>';
+  document.getElementById('proj-list').appendChild(d);
 }
-function addEducation(){
-  const div=document.createElement('div');div.className='edu-item';
-  div.innerHTML=`<button class="remove-btn" style="top:6px;" onclick="removeEl(this,'.edu-item')">× Remove</button>
-    <div class="edu-icon">🎓</div>
-    <div><div class="edu-degree" contenteditable="true">Degree</div><div class="edu-school" contenteditable="true">Institution</div><div class="edu-year" contenteditable="true">Year – Year</div></div>`;
-  document.getElementById('edu-list').appendChild(div);
+function addEdu(){
+  var d = document.createElement('div'); d.className = 'edui';
+  d.innerHTML = '<button class="rm-btn" style="top:6px;" onclick="rmEl(this,\'.edui\')">× Remove</button><div class="eduic">🎓</div><div><div class="edud" contenteditable="true">Degree</div><div class="edus" contenteditable="true">Institution</div><div class="eduy" contenteditable="true">Year – Year</div></div>';
+  document.getElementById('edu-list').appendChild(d);
 }
 function addCert(){
-  const div=document.createElement('div');div.className='cert-item';
-  div.innerHTML=`<button class="remove-btn" style="top:8px;" onclick="removeEl(this,'.cert-item')">× Remove</button>
-    <div c
+  var d = document.createElement('div'); d.className = 'certi';
+  d.innerHTML = '<button class="rm-btn" style="top:8px;" onclick="rmEl(this,\'.certi\')">× Remove</button><div class="cdot da"></div><div class="cn" contenteditable="true">Certification</div><div class="cs" contenteditable="true">Status · Year</div>';
+  document.getElementById('cert-list').appendChild(d);
+}
+document.addEventListener('blur', function(e){
+  if(document.body.classList.contains('editing') && e.target.isContentEditable) saveAll();
+}, true);
+</script>
+</body>
+</html>
