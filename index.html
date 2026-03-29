@@ -190,8 +190,8 @@ body.editing #edit-banner{display:block}
   <div class="nav-inner">
     <div class="nav-logo" contenteditable="false">HK.</div>
     <div class="nav-links">
-      <a onclick="showTab('portfolio');return false;" href="javascript:void(0)">Portfolio</a>
-      <a onclick="showTab('resume');return false;" href="javascript:void(0)">Resume</a>
+      <a onclick="showTab('portfolio')">Portfolio</a>
+      <a onclick="showTab('resume')">Resume</a>
 
     </div>
   </div>
@@ -211,9 +211,9 @@ body.editing #edit-banner{display:block}
         <span class="badge badge-green">✓ Open to Opportunities</span>
       </div>
       <div class="hero-links">
-        <a class="btn-primary" href="javascript:void(0)" onclick="window.location.href='mai'+'lto:hiriharank@'+'outlook.com'">✉ Contact Me</a>
-        <button class="btn-outline" onclick="showTab('resume');return false;">📄 View Resume</button>
-        <a class="btn-outline" href="https://www.linkedin.com/in/hiriharan-kugadhaas-433035275" target="_blank" rel="noopener">↗ LinkedIn</a>
+        <a class="btn-primary" href="/cdn-cgi/l/email-protection#751d1c071c1d1407141b1e351a0001191a1a1e5b161a18">✉ Contact Me</a>
+        <button class="btn-outline" onclick="showTab('resume')">📄 View Resume</button>
+        <a class="btn-outline" href="https://www.linkedin.com/in/hiriharan-kugadhaas-433035275" target="_blank">↗ LinkedIn</a>
       </div>
     </div>
     <div class="avatar">HK</div>
@@ -361,7 +361,7 @@ body.editing #edit-banner{display:block}
       <div class="card">
         <div class="card-header"><div class="card-title"><span class="card-icon">📬</span> Contact</div></div>
         <div class="card-body">
-          <div class="contact-row"><div class="contact-icon">✉</div><div><div class="contact-label">Email</div><div class="contact-value" id="sidebar-email" contenteditable="false"></div></div></div>
+          <div class="contact-row"><div class="contact-icon">✉</div><div><div class="contact-label">Email</div><div class="contact-value" contenteditable="false"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="93fbfae1fafbf2e1f2fdf8d3fce6e7fffcfcf8bdf0fcfe">[email&#160;protected]</a></div></div></div>
           <div class="contact-row"><div class="contact-icon">📱</div><div><div class="contact-label">Phone</div><div class="contact-value" contenteditable="false">+61 491 296 105</div></div></div>
           <div class="contact-row"><div class="contact-icon">📍</div><div><div class="contact-label">Location</div><div class="contact-value" contenteditable="false">Sydney, NSW, Australia</div></div></div>
           <div class="contact-row"><div class="contact-icon">🔗</div><div><div class="contact-label">LinkedIn</div><div class="contact-value" contenteditable="false">linkedin.com/in/hiriharan-kugadhaas</div></div></div>
@@ -438,7 +438,7 @@ body.editing #edit-banner{display:block}
         <div class="resume-name" contenteditable="false">Hiriharan Kugadhaas</div>
         <div class="resume-role" contenteditable="false">Cloud &amp; Security Engineer — Graduate</div>
         <div class="resume-contact-line">
-          <span>✉ <span id="resume-email" contenteditable="false"></span></span>
+          <span>✉ <span contenteditable="false"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="660e0f140f0e071407080d260913120a09090d4805090b">[email&#160;protected]</a></span></span>
           <span>📱 <span contenteditable="false">+61 491 296 105</span></span>
           <span>📍 <span contenteditable="false">Sydney, Australia</span></span>
           <span>🔗 <span contenteditable="false">linkedin.com/in/hiriharan-kugadhaas-433035275</span></span>
@@ -586,14 +586,6 @@ body.editing #edit-banner{display:block}
 </div><!-- end main -->
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// Inject email to bypass Cloudflare obfuscation
-(function(){
-  const e = 'hiriharank' + '@' + 'outlook.com';
-  const s = document.getElementById('sidebar-email');
-  const r = document.getElementById('resume-email');
-  if(s) s.innerHTML = '<a href="mailto:'+e+'" style="color:var(--navy);text-decoration:none;">'+e+'</a>';
-  if(r) r.textContent = e;
-})();
 function showTab(name){
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
