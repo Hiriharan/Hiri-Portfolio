@@ -4,179 +4,214 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Hiriharan Kugadhaas — Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
 <style>
 :root{
-  --bg:#f7f8fc;--white:#fff;--navy:#1a2744;--navy2:#243156;
-  --blue:#2563eb;--bl:#eff4ff;--bm:#dbeafe;
-  --slate:#475569;--muted:#94a3b8;--border:#e2e8f0;--border2:#cbd5e1;
-  --text:#1e293b;--green:#059669;--green-bg:#ecfdf5;
-  --amber:#d97706;--amber-bg:#fffbeb;
-  --sh:0 1px 3px rgba(0,0,0,.06),0 4px 16px rgba(0,0,0,.04);
-  --shm:0 4px 20px rgba(0,0,0,.08),0 1px 4px rgba(0,0,0,.04);
+  --bg:#0d0f14;
+  --bg2:#13161d;
+  --bg3:#1a1e28;
+  --bg4:#222736;
+  --surface:#1e2230;
+  --surface2:#252a3a;
+  --border:#2a2f42;
+  --border2:#333a52;
+  --accent:#4f7cff;
+  --accent2:#3d63e0;
+  --accent-glow:rgba(79,124,255,0.18);
+  --amber:#f59e0b;
+  --amber-bg:rgba(245,158,11,0.1);
+  --green:#10b981;
+  --green-bg:rgba(16,185,129,0.1);
+  --text:#eef0f6;
+  --text2:#9aa0b8;
+  --text3:#5c6280;
+  --white:#fff;
+  --navy:#0d0f14;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.6;min-height:100vh}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Instrument Sans',sans-serif;line-height:1.6;min-height:100vh;overflow-x:hidden}
+
+/* NOISE OVERLAY */
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.6}
 
 /* NAV */
-nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 1px 8px rgba(0,0,0,.04)}
-.nav-inner{max-width:1060px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:56px}
-.nav-logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:800;color:var(--navy)}
-.nav-links{display:flex;gap:4px}
-.nav-btn{font-size:13px;color:var(--slate);background:none;border:none;padding:7px 14px;border-radius:6px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:500;transition:all .15s}
-.nav-btn:hover{background:var(--bg);color:var(--navy)}
-.nav-btn.active{background:var(--navy);color:#fff}
+nav{background:rgba(13,15,20,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav-inner{max-width:1080px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:58px}
+.nav-logo{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--text);letter-spacing:-.02em}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2px}
+.nav-btn{font-size:13px;color:var(--text2);background:none;border:none;padding:7px 16px;border-radius:7px;cursor:pointer;font-family:'Instrument Sans',sans-serif;font-weight:500;transition:all .15s;letter-spacing:.01em}
+.nav-btn:hover{color:var(--text);background:var(--surface)}
+.nav-btn.active{background:var(--accent);color:#fff}
 
 /* HERO */
-.hero{background:var(--white);border-bottom:1px solid var(--border)}
-.hero-inner{max-width:1060px;margin:0 auto;padding:60px 28px 52px;display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap}
-.hero-eyebrow{font-size:12px;font-weight:600;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
-h1{font-family:'Playfair Display',serif;font-size:clamp(34px,5vw,56px);font-weight:800;color:var(--navy);line-height:1.1;letter-spacing:-.02em;margin-bottom:14px}
-.hero-sub{font-size:15px;color:var(--slate);margin-bottom:20px;line-height:1.8;max-width:540px}
-.badges{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:26px}
-.badge{font-size:12px;font-weight:600;padding:5px 12px;border-radius:20px}
-.b-blue{background:var(--bl);color:var(--blue);border:1px solid var(--bm)}
-.b-green{background:var(--green-bg);color:var(--green);border:1px solid #a7f3d0}
-.b-amber{background:var(--amber-bg);color:var(--amber);border:1px solid #fde68a}
+.hero{position:relative;background:var(--bg2);border-bottom:1px solid var(--border);overflow:hidden}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;opacity:.35;pointer-events:none}
+.hero-glow{position:absolute;top:-120px;left:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(79,124,255,0.12) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:1080px;margin:0 auto;padding:64px 28px 56px;position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap}
+.hero-eyebrow{font-size:11px;font-weight:600;color:var(--accent);letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--accent)}
+h1{font-family:'Syne',sans-serif;font-size:clamp(36px,5.5vw,62px);font-weight:800;color:var(--text);line-height:1.05;letter-spacing:-.03em;margin-bottom:16px}
+h1 span{color:var(--accent)}
+.hero-sub{font-size:14.5px;color:var(--text2);margin-bottom:22px;line-height:1.85;max-width:520px}
+.badges{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:28px}
+.badge{font-size:11px;font-weight:600;padding:4px 11px;border-radius:20px;letter-spacing:.02em}
+.b-blue{background:rgba(79,124,255,0.12);color:#7da4ff;border:1px solid rgba(79,124,255,0.25)}
+.b-green{background:var(--green-bg);color:#34d399;border:1px solid rgba(16,185,129,0.25)}
+.b-amber{background:var(--amber-bg);color:#fbbf24;border:1px solid rgba(245,158,11,0.25)}
 .hero-links{display:flex;gap:10px;flex-wrap:wrap}
-.btn{font-size:13px;font-weight:600;padding:10px 20px;border-radius:8px;cursor:pointer;font-family:'DM Sans',sans-serif;display:inline-flex;align-items:center;gap:6px;text-decoration:none;transition:all .15s;border:none}
-.btn-p{background:var(--blue);color:#fff}.btn-p:hover{background:#1d4ed8;transform:translateY(-1px)}
-.btn-o{background:#fff;color:var(--navy);border:1px solid var(--border2)}.btn-o:hover{border-color:var(--navy)}
-.avatar{width:108px;height:108px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--blue));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:34px;font-weight:800;color:#fff;flex-shrink:0;box-shadow:var(--shm)}
+.btn{font-size:13px;font-weight:600;padding:10px 20px;border-radius:8px;cursor:pointer;font-family:'Instrument Sans',sans-serif;display:inline-flex;align-items:center;gap:7px;text-decoration:none;transition:all .18s;border:none;letter-spacing:.01em}
+.btn-p{background:var(--accent);color:#fff}.btn-p:hover{background:var(--accent2);transform:translateY(-1px);box-shadow:0 4px 20px rgba(79,124,255,0.35)}
+.btn-o{background:transparent;color:var(--text);border:1px solid var(--border2)}.btn-o:hover{border-color:var(--accent);color:var(--accent)}
+.avatar{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--accent2),var(--accent));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:30px;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 0 0 4px var(--bg2),0 0 0 5px var(--border2),0 8px 32px rgba(79,124,255,0.3)}
 
 /* TABS */
-.tab-bar{max-width:1060px;margin:28px auto 0;padding:0 28px}
-.tab-bar-inner{display:flex;gap:2px;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:4px;box-shadow:var(--sh)}
-.tb{flex:1;font-size:13px;font-weight:600;color:var(--muted);background:transparent;border:none;padding:9px 16px;border-radius:7px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s}
-.tb:hover{color:var(--slate)}
-.tb.active{background:var(--navy);color:#fff}
+.tab-bar{max-width:1080px;margin:26px auto 0;padding:0 28px}
+.tab-bar-inner{display:flex;gap:2px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:4px;width:fit-content}
+.tb{font-size:13px;font-weight:600;color:var(--text3);background:transparent;border:none;padding:8px 20px;border-radius:7px;cursor:pointer;font-family:'Instrument Sans',sans-serif;transition:all .15s;letter-spacing:.01em}
+.tb:hover{color:var(--text2)}
+.tb.active{background:var(--accent);color:#fff}
 
 /* PANELS */
-.panel{display:none}
-.panel.active{display:block}
+.panel{display:none}.panel.active{display:block}
 
-/* PORTFOLIO LAYOUT */
-.pf-layout{max-width:1060px;margin:20px auto 80px;padding:0 28px;display:grid;grid-template-columns:1fr 296px;gap:22px;align-items:start}
-
-/* RESUME LAYOUT */
-.rv-layout{max-width:1060px;margin:20px auto 80px;padding:0 28px}
+/* LAYOUT */
+.pf-layout{max-width:1080px;margin:24px auto 80px;padding:0 28px;display:grid;grid-template-columns:1fr 290px;gap:20px;align-items:start}
+.rv-layout{max-width:1080px;margin:24px auto 80px;padding:0 28px}
 .rv-actions{display:flex;gap:10px;margin-bottom:18px}
 
 /* CARD */
-.card{background:var(--white);border:1px solid var(--border);border-radius:12px;box-shadow:var(--sh);overflow:hidden;margin-bottom:18px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:18px;transition:border-color .2s}
 .card:last-child{margin-bottom:0}
-.ch{padding:16px 22px 13px;border-bottom:1px solid var(--border)}
-.ct{font-size:12px;font-weight:700;color:var(--navy);letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
-.ci{width:22px;height:22px;background:var(--bl);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:12px}
-.cb{padding:18px 22px}
+.card:hover{border-color:var(--border2)}
+.ch{padding:14px 20px 12px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.ct{font-size:11px;font-weight:700;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.ci{width:22px;height:22px;background:rgba(79,124,255,0.12);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--accent)}
+.cb{padding:18px 20px}
 .sidebar{display:flex;flex-direction:column}
 
 /* SKILLS */
-.sg{margin-bottom:13px}.sg:last-child{margin-bottom:0}
-.sgl{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.sg{margin-bottom:14px}.sg:last-child{margin-bottom:0}
+.sgl{font-size:10px;font-weight:700;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}
 .stags{display:flex;flex-wrap:wrap;gap:5px}
-.stag{font-size:12px;font-weight:500;color:var(--slate);background:var(--bg);border:1px solid var(--border2);border-radius:6px;padding:3px 9px}
+.stag{font-size:11.5px;font-weight:500;color:var(--text2);background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:3px 9px;transition:all .15s}
+.stag:hover{color:var(--text);border-color:var(--accent);background:rgba(79,124,255,0.08)}
 
 /* EXP */
 .ei{padding:18px 0;border-bottom:1px solid var(--border);position:relative}
 .ei:first-child{padding-top:0}.ei:last-child{border-bottom:none;padding-bottom:0}
 .er{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:2px}
-.et{font-size:15px;font-weight:700;color:var(--navy)}
-.ed{font-size:12px;color:var(--muted);font-weight:500;white-space:nowrap;flex-shrink:0}
-.ec{font-size:13px;color:var(--blue);font-weight:500;margin-bottom:7px}
+.et{font-size:14.5px;font-weight:700;color:var(--text)}
+.ed{font-size:11.5px;color:var(--text3);font-weight:500;white-space:nowrap;flex-shrink:0;background:var(--bg3);padding:2px 8px;border-radius:4px;border:1px solid var(--border)}
+.ec{font-size:12.5px;color:var(--accent);font-weight:500;margin-bottom:8px;opacity:.85}
 .ebl{list-style:none}
-.ebl li{font-size:13px;color:var(--slate);line-height:1.75;padding-left:14px;position:relative;margin-bottom:3px}
-.ebl li::before{content:'•';position:absolute;left:0;color:var(--blue)}
+.ebl li{font-size:13px;color:var(--text2);line-height:1.8;padding-left:16px;position:relative;margin-bottom:3px}
+.ebl li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:11px;top:3px}
 
 /* PROJECTS */
-.pi{padding:16px 0;border-bottom:1px solid var(--border);position:relative}
+.pi{padding:18px 0;border-bottom:1px solid var(--border);position:relative}
 .pi:first-child{padding-top:0}.pi:last-child{border-bottom:none;padding-bottom:0}
-.pn{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:4px}
-.pm{font-size:11px;color:var(--muted);margin-bottom:6px;font-weight:500}
-.pd{font-size:13px;color:var(--slate);line-height:1.75;margin-bottom:9px}
+.pn{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px}
+.pm{font-size:11px;color:var(--text3);margin-bottom:7px;font-weight:500}
+.pd{font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:10px}
 .ps{display:flex;flex-wrap:wrap;gap:5px}
-.sc{font-size:11px;font-weight:600;color:var(--blue);background:var(--bl);border:1px solid var(--bm);border-radius:4px;padding:2px 8px}
+.sc{font-size:11px;font-weight:600;color:var(--accent);background:rgba(79,124,255,0.1);border:1px solid rgba(79,124,255,0.2);border-radius:4px;padding:2px 8px}
 
 /* EDU */
 .edui{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);position:relative}
 .edui:first-child{padding-top:0}.edui:last-child{border-bottom:none;padding-bottom:0}
-.eduic{width:34px;height:34px;background:var(--bl);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
-.edud{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:2px}
-.edus{font-size:12px;color:var(--blue);font-weight:500;margin-bottom:2px}
-.eduy{font-size:11px;color:var(--muted)}
+.eduic{width:32px;height:32px;background:rgba(79,124,255,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;border:1px solid rgba(79,124,255,0.2)}
+.edud{font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px}
+.edus{font-size:12px;color:var(--accent);font-weight:500;margin-bottom:2px;opacity:.85}
+.eduy{font-size:11px;color:var(--text3)}
 
 /* CERT */
-.certi{display:flex;align-items:center;gap:10px;padding:10px 13px;background:var(--bg);border-radius:8px;margin-bottom:7px;border:1px solid var(--border)}
+.certi{display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--bg3);border-radius:8px;margin-bottom:7px;border:1px solid var(--border)}
 .certi:last-child{margin-bottom:0}
-.cdot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.cdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
 .dg{background:var(--green)}.da{background:var(--amber)}
-.cn{font-size:12px;font-weight:600;color:var(--navy);flex:1}
-.cs{font-size:11px;color:var(--muted);white-space:nowrap}
+.cn{font-size:12px;font-weight:600;color:var(--text);flex:1}
+.cs{font-size:11px;color:var(--text3);white-space:nowrap}
 
 /* CONTACT */
-.cr{display:flex;align-items:center;gap:10px;margin-bottom:11px}
+.cr{display:flex;align-items:center;gap:10px;margin-bottom:12px}
 .cr:last-child{margin-bottom:0}
-.cric{width:30px;height:30px;border-radius:7px;background:var(--bl);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
-.crl{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.07em;text-transform:uppercase}
-.crv{font-size:12px;color:var(--navy);font-weight:500}
+.cric{width:30px;height:30px;border-radius:7px;background:rgba(79,124,255,0.1);border:1px solid rgba(79,124,255,0.2);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+.crl{font-size:10px;color:var(--text3);font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:1px}
+.crv{font-size:12px;color:var(--text);font-weight:500}
 
 /* VOL */
 .vi{padding:10px 0}
 
 /* RESUME PAGE */
-.rp{background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:var(--shm);padding:52px 56px;max-width:780px;margin:0 auto}
-.rh{border-bottom:2px solid var(--navy);padding-bottom:18px;margin-bottom:22px}
-.rn{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--navy);letter-spacing:-.02em;margin-bottom:4px}
-.rr{font-size:13px;color:var(--blue);font-weight:600;margin-bottom:10px}
-.rcl{font-size:12px;color:var(--slate);display:flex;flex-wrap:wrap;gap:14px}
-.rs{margin-bottom:19px}
-.rst{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);border-bottom:1px solid var(--border2);padding-bottom:5px;margin-bottom:11px}
+.rp{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:52px 56px;max-width:800px;margin:0 auto}
+.rh{border-bottom:1px solid var(--border2);padding-bottom:20px;margin-bottom:24px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px}
+.rh-left{}
+.rn{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--text);letter-spacing:-.03em;margin-bottom:4px}
+.rr{font-size:12.5px;color:var(--accent);font-weight:600;margin-bottom:0;letter-spacing:.02em;text-transform:uppercase}
+.rcl{font-size:11.5px;color:var(--text2);display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
+.rs{margin-bottom:22px}
+.rst{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:6px;margin-bottom:13px;display:flex;align-items:center;gap:8px}
+.rst::before{content:'';width:16px;height:2px;background:var(--accent);border-radius:1px}
 .reh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px;flex-wrap:wrap;gap:4px}
-.ret{font-size:13px;font-weight:700;color:var(--navy)}
-.red{font-size:11px;color:var(--muted)}
-.rec{font-size:12px;color:var(--blue);font-weight:600;margin-bottom:5px}
-.rbl{list-style:none;padding:0;margin-bottom:11px}
-.rbl li{font-size:12px;color:var(--slate);line-height:1.75;padding-left:14px;position:relative}
-.rbl li::before{content:'•';position:absolute;left:0;color:var(--blue)}
-.rsg{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px}
-.rsc{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px}
-.rsv{font-size:12px;color:var(--slate)}
-.rer{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;flex-wrap:wrap;gap:4px}
-.red2{font-size:13px;font-weight:700;color:var(--navy)}
-.res{font-size:12px;color:var(--blue)}
-.rey{font-size:11px;color:var(--muted);white-space:nowrap}
+.ret{font-size:13px;font-weight:700;color:var(--text)}
+.red{font-size:11px;color:var(--text3);background:var(--bg3);padding:1px 7px;border-radius:4px;border:1px solid var(--border)}
+.rec{font-size:12px;color:var(--accent);font-weight:600;margin-bottom:6px;opacity:.85}
+.rbl{list-style:none;padding:0;margin-bottom:12px}
+.rbl li{font-size:12px;color:var(--text2);line-height:1.8;padding-left:14px;position:relative}
+.rbl li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:10px;top:2px}
+.rsg{display:grid;grid-template-columns:1fr 1fr;gap:8px 24px}
+.rsc{font-size:10px;font-weight:700;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px}
+.rsv{font-size:12px;color:var(--text2)}
+.rer{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;flex-wrap:wrap;gap:4px}
+.red2{font-size:13px;font-weight:700;color:var(--text)}
+.res{font-size:12px;color:var(--accent);opacity:.85}
+.rey{font-size:11px;color:var(--text3);white-space:nowrap}
 
 /* EDIT MODE */
 [contenteditable="true"]{outline:none;transition:background .15s}
-body.editing [contenteditable="true"]{background:#fffbeb;box-shadow:inset 0 0 0 1.5px #fbbf24;cursor:text;border-radius:3px;padding:1px 3px;margin:-1px -3px}
-body.editing [contenteditable="true"]:focus{background:#fef3c7;box-shadow:inset 0 0 0 1.5px #d97706}
-.add-btn{display:none;font-size:12px;font-weight:600;color:var(--blue);background:var(--bl);border:1px dashed var(--blue);border-radius:7px;padding:8px 16px;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:12px;width:100%}
+body.editing [contenteditable="true"]{background:rgba(245,158,11,0.08);box-shadow:inset 0 0 0 1.5px rgba(245,158,11,0.5);cursor:text;border-radius:3px;padding:1px 3px;margin:-1px -3px}
+body.editing [contenteditable="true"]:focus{background:rgba(245,158,11,0.14);box-shadow:inset 0 0 0 1.5px var(--amber)}
+.add-btn{display:none;font-size:12px;font-weight:600;color:var(--accent);background:rgba(79,124,255,0.07);border:1px dashed rgba(79,124,255,0.35);border-radius:7px;padding:8px 16px;cursor:pointer;font-family:'Instrument Sans',sans-serif;margin-top:12px;width:100%}
 body.editing .add-btn{display:block}
-.rm-btn{display:none;position:absolute;top:12px;right:0;background:#fff;border:1px solid var(--border2);color:var(--muted);font-size:11px;cursor:pointer;padding:3px 7px;border-radius:5px;font-family:'DM Sans',sans-serif;font-weight:600}
-.rm-btn:hover{color:#dc2626;border-color:#fca5a5;background:#fff5f5}
+.rm-btn{display:none;position:absolute;top:12px;right:0;background:var(--bg3);border:1px solid var(--border2);color:var(--text3);font-size:11px;cursor:pointer;padding:3px 7px;border-radius:5px;font-family:'Instrument Sans',sans-serif;font-weight:600}
+.rm-btn:hover{color:#f87171;border-color:rgba(248,113,113,0.4)}
 body.editing .rm-btn{display:block}
-.atb{display:none;font-size:11px;font-weight:600;color:var(--blue);background:var(--bl);border:1px dashed var(--blue);border-radius:5px;padding:3px 8px;cursor:pointer;font-family:'DM Sans',sans-serif}
+.atb{display:none;font-size:11px;font-weight:600;color:var(--accent);background:rgba(79,124,255,0.1);border:1px dashed rgba(79,124,255,0.35);border-radius:5px;padding:3px 8px;cursor:pointer;font-family:'Instrument Sans',sans-serif}
 body.editing .atb{display:inline-block}
 body.editing .stag{cursor:pointer}
-body.editing .stag:hover{background:#fff5f5;border-color:#fca5a5;color:#dc2626}
+body.editing .stag:hover{background:rgba(248,113,113,0.1);border-color:rgba(248,113,113,0.35);color:#f87171}
 body.editing .stag:hover::after{content:' ×';font-size:10px}
-#eb{display:none;background:#fffbeb;border-bottom:1px solid #fde68a;padding:10px 28px;font-size:12px;color:#92400e;font-weight:500;text-align:center}
+#eb{display:none;background:rgba(245,158,11,0.1);border-bottom:1px solid rgba(245,158,11,0.2);padding:10px 28px;font-size:12px;color:var(--amber);font-weight:500;text-align:center}
 body.editing #eb{display:block}
 #toast{position:fixed;bottom:24px;right:24px;background:var(--green);color:#fff;font-size:12px;font-weight:600;padding:10px 18px;border-radius:8px;z-index:999;opacity:0;transform:translateY(8px);transition:all .25s;pointer-events:none}
 #toast.show{opacity:1;transform:translateY(0)}
 
+/* PRINT */
 @media print{
   nav,.tab-bar,.rv-actions,#eb{display:none!important}
-  body{background:#fff}
+  body{background:#fff;color:#000}
   .rv-layout{margin:0;padding:0}
-  .rp{box-shadow:none;border:none;padding:20px 0;max-width:100%}
+  .rp{box-shadow:none;border:none;padding:20px 0;max-width:100%;background:#fff}
+  .rn,.ret,.red2{color:#0d0f14!important}
+  .rec,.res,.rr,.rst{color:#2563eb!important}
+  .rcl,.rbl li,.rsv,.text2{color:#475569!important}
+  .red,.rey{background:none;border:none;color:#94a3b8!important}
 }
-@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.card{animation:fu .4s ease both}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.card{animation:fadeUp .35s ease both}
+.card:nth-child(2){animation-delay:.05s}
+.card:nth-child(3){animation-delay:.1s}
+.card:nth-child(4){animation-delay:.15s}
+
 @media(max-width:720px){
   .hero-inner{flex-direction:column}.avatar{display:none}
   .pf-layout{grid-template-columns:1fr}
   .rp{padding:24px 18px}.rsg{grid-template-columns:1fr}
+  h1{font-size:36px}
 }
 </style>
 </head>
@@ -187,7 +222,7 @@ body.editing #eb{display:block}
 
 <nav>
   <div class="nav-inner">
-    <div class="nav-logo">HK.</div>
+    <div class="nav-logo">HK<span>.</span></div>
     <div class="nav-links">
       <button class="nav-btn active" id="nb-portfolio" onclick="showTab('portfolio')">Portfolio</button>
       <button class="nav-btn" id="nb-resume" onclick="showTab('resume')">Resume</button>
@@ -196,15 +231,18 @@ body.editing #eb{display:block}
 </nav>
 
 <div class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
   <div class="hero-inner">
     <div>
       <div class="hero-eyebrow">Cloud &amp; Security Engineer</div>
-      <h1>Hiriharan<br>Kugadhaas</h1>
-      <p class="hero-sub">IT graduate specialising in Security and Cloud Engineering. Hands-on experience deploying cloud-native applications across GCP, AWS, and Azure. Seeking graduate cloud or platform engineering roles in Sydney.</p>
+      <h1>Hiriharan<br><span>Kugadhaas</span></h1>
+      <p class="hero-sub">IT graduate specialising in Security and Cloud Engineering. Hands-on experience deploying cloud-native applications across GCP, AWS, and Azure — from AI-driven cybersecurity tools to full-stack business platforms. Seeking graduate cloud and platform engineering roles in Sydney.</p>
       <div class="badges">
         <span class="badge b-blue">☁ Cloud Engineering</span>
         <span class="badge b-blue">🔐 Cybersecurity</span>
         <span class="badge b-blue">⚙ DevOps</span>
+        <span class="badge b-blue">⚡ Full-Stack Dev</span>
         <span class="badge b-amber">📋 AZ-900 In Progress</span>
         <span class="badge b-green">✓ Open to Opportunities</span>
       </div>
@@ -212,6 +250,7 @@ body.editing #eb{display:block}
         <button class="btn btn-p" id="contact-btn">✉ Contact Me</button>
         <button class="btn btn-o" onclick="showTab('resume')">📄 View Resume</button>
         <a class="btn btn-o" href="https://www.linkedin.com/in/hiriharan-kugadhaas-433035275" target="_blank" rel="noopener">↗ LinkedIn</a>
+        <a class="btn btn-o" href="https://github.com/Hiriharan" target="_blank" rel="noopener">↗ GitHub</a>
       </div>
     </div>
     <div class="avatar">HK</div>
@@ -228,23 +267,31 @@ body.editing #eb{display:block}
 <!-- PORTFOLIO PANEL -->
 <div class="panel active" id="panel-portfolio">
   <div class="pf-layout">
-
     <div>
+
       <!-- ABOUT -->
       <div class="card">
-        <div class="ch"><div class="ct"><span class="ci">👤</span> About</div></div>
+        <div class="ch"><div class="ct"><span class="ci">◈</span> About</div></div>
         <div class="cb">
-          <p style="font-size:14px;color:var(--slate);line-height:1.85;" contenteditable="false">
-            IT graduate specialising in Security and Cloud Engineering (ACU, 2025) with hands-on experience deploying cloud-native applications across GCP, AWS, and Azure. I've built an AI-powered cybersecurity detection system, a full-stack tutoring platform, and competed in Kaggle ML competitions. Skilled in Python, Docker, Terraform, CI/CD pipelines, and Linux-based systems. Currently completing AZ-900 and Ethical Hacking certifications, and actively seeking a graduate cloud or platform engineering role.
-          </p>
+          <p style="font-size:14px;color:var(--text2);line-height:1.9;" contenteditable="false">IT graduate specialising in Security and Cloud Engineering (ACU, 2025) with hands-on experience deploying cloud-native applications across GCP, AWS, and Azure. I've built an AI-powered cybersecurity detection platform, a full-stack transport business platform, a live AI trading suite, and competed in Kaggle ML competitions. My stack spans Python, JavaScript/TypeScript, Next.js, Node.js, Docker, Terraform, and CI/CD pipelines. Currently completing AZ-900 and actively seeking a graduate cloud or platform engineering role in Sydney.</p>
         </div>
       </div>
 
       <!-- EXPERIENCE -->
       <div class="card">
-        <div class="ch"><div class="ct"><span class="ci">💼</span> Work Experience</div></div>
+        <div class="ch"><div class="ct"><span class="ci">◈</span> Work Experience</div></div>
         <div class="cb">
           <div id="exp-list">
+            <div class="ei">
+              <button class="rm-btn" onclick="rmEl(this,'.ei')">× Remove</button>
+              <div class="er"><div class="et" contenteditable="false">IT Support Technician</div><div class="ed" contenteditable="false">Jan 2025 – Nov 2025</div></div>
+              <div class="ec" contenteditable="false">National Welding and Industrial Supplies · Sydney, AU</div>
+              <ul class="ebl">
+                <li contenteditable="false">Maintained near-zero downtime across 20+ workstations providing onsite hardware and Windows-based systems support.</li>
+                <li contenteditable="false">Configured networking equipment, diagnosed system faults independently, and improved warehouse operational efficiency.</li>
+                <li contenteditable="false">Assisted with infrastructure support and inventory systems, resolving technical issues with minimal supervision.</li>
+              </ul>
+            </div>
             <div class="ei">
               <button class="rm-btn" onclick="rmEl(this,'.ei')">× Remove</button>
               <div class="er"><div class="et" contenteditable="false">MHE Operator</div><div class="ed" contenteditable="false">Dec 2025 – Present</div></div>
@@ -256,29 +303,11 @@ body.editing #eb{display:block}
             </div>
             <div class="ei">
               <button class="rm-btn" onclick="rmEl(this,'.ei')">× Remove</button>
-              <div class="er"><div class="et" contenteditable="false">IT Support Technician</div><div class="ed" contenteditable="false">Jan 2025 – Nov 2025</div></div>
-              <div class="ec" contenteditable="false">National Welding and Industrial Supplies · Sydney, AU</div>
-              <ul class="ebl">
-                <li contenteditable="false">Provided onsite IT support maintaining near-zero downtime across 20+ workstations.</li>
-                <li contenteditable="false">Installed and configured workstations, printers, and networking equipment; diagnosed and resolved faults independently.</li>
-                <li contenteditable="false">Assisted with infrastructure support and inventory systems, improving operational efficiency.</li>
-              </ul>
-            </div>
-            <div class="ei">
-              <button class="rm-btn" onclick="rmEl(this,'.ei')">× Remove</button>
-              <div class="er"><div class="et" contenteditable="false">Operations Contractor</div><div class="ed" contenteditable="false">Aug 2023 – Nov 2025</div></div>
-              <div class="ec" contenteditable="false">Woolworths Group (via ARA) · Sydney, AU</div>
-              <ul class="ebl">
-                <li contenteditable="false">Supervised daily site operations and provided low-level IT support including device troubleshooting and connectivity resolution.</li>
-              </ul>
-            </div>
-            <div class="ei">
-              <button class="rm-btn" onclick="rmEl(this,'.ei')">× Remove</button>
               <div class="er"><div class="et" contenteditable="false">Frontline Sales &amp; IT Support Trainee</div><div class="ed" contenteditable="false">Mar 2021 – Dec 2022</div></div>
               <div class="ec" contenteditable="false">Chilaw Vision</div>
               <ul class="ebl">
-                <li contenteditable="false">Delivered customer-facing IT product support and resolved hardware and network issues.</li>
-                <li contenteditable="false">Maintained up-to-date product and industry knowledge to provide accurate technical guidance.</li>
+                <li contenteditable="false">Resolved hardware and network issues while providing technical guidance on consumer and business IT products.</li>
+                <li contenteditable="false">Maintained up-to-date product and industry knowledge to deliver accurate technical support.</li>
               </ul>
             </div>
           </div>
@@ -288,28 +317,42 @@ body.editing #eb{display:block}
 
       <!-- PROJECTS -->
       <div class="card">
-        <div class="ch"><div class="ct"><span class="ci">🚀</span> Projects</div></div>
+        <div class="ch"><div class="ct"><span class="ci">◈</span> Projects</div></div>
         <div class="cb">
           <div id="proj-list">
             <div class="pi">
               <button class="rm-btn" onclick="rmEl(this,'.pi')">× Remove</button>
-              <div class="pn" contenteditable="false">AI-Powered Cybersecurity Detection System</div>
-              <div class="pm" contenteditable="false">ACU · Feb 2025 – Nov 2025</div>
-              <div class="pd" contenteditable="false">Deployed a Flask-based real-time network traffic dashboard on GCP handling 10,000+ simulated traffic events per test cycle. ML models achieved ~89% accuracy identifying malicious traffic. Automated deployment pipeline reduced manual setup by ~60%. Integrated alert generation replicating real-world SOC monitoring workflows.</div>
-              <div class="ps"><span class="sc">GCP</span><span class="sc">Flask</span><span class="sc">Python</span><span class="sc">Machine Learning</span><span class="sc">Docker</span><span class="sc">CI/CD</span></div>
+              <div class="pn" contenteditable="false">Scanlytics — AI Cybersecurity Detection System</div>
+              <div class="pm" contenteditable="false">ACU Capstone · Feb 2025 – Nov 2025 · <a href="https://github.com/Hiriharan" target="_blank" style="color:var(--accent);text-decoration:none;">github.com/Hiriharan</a></div>
+              <div class="pd" contenteditable="false">Architected an ML-powered threat detection platform on GCP achieving ~89% classification accuracy for malware and network intrusions. Engineered end-to-end data ingestion and inference pipelines using Cloud Functions, Cloud Storage, and BigQuery. Trained supervised classification models (Random Forest, Neural Networks) using Python and scikit-learn. Automated deployment pipeline reduced manual setup time by ~60%; integrated SOC-style real-time alert generation.</div>
+              <div class="ps"><span class="sc">GCP</span><span class="sc">Python</span><span class="sc">Machine Learning</span><span class="sc">Flask</span><span class="sc">Docker</span><span class="sc">BigQuery</span><span class="sc">CI/CD</span></div>
             </div>
             <div class="pi">
               <button class="rm-btn" onclick="rmEl(this,'.pi')">× Remove</button>
-              <div class="pn" contenteditable="false">Online Tutoring Web Platform</div>
-              <div class="pm" contenteditable="false">ACU Internship · Nov 2024 – Jan 2025</div>
-              <div class="pd" contenteditable="false">Built and deployed a full-stack responsive web app using ASP.NET, jQuery Mobile, and SQL with role-based access control. Mobile-first UI/UX deployed on Netlify. OWASP-compliant authentication with session management.</div>
-              <div class="ps"><span class="sc">ASP.NET</span><span class="sc">SQL</span><span class="sc">jQuery</span><span class="sc">Netlify</span><span class="sc">OWASP</span></div>
+              <div class="pn" contenteditable="false">RR Transport — Business Automation &amp; Web Platform</div>
+              <div class="pm" contenteditable="false">Production · 2024 – Present · <a href="https://rrtransport.au" target="_blank" style="color:var(--accent);text-decoration:none;">rrtransport.au</a></div>
+              <div class="pd" contenteditable="false">Directed the full digital transformation for a registered Australian transport business. Built a production-ready Next.js platform integrating Google Calendar API, Stripe payments, and WhatsApp enquiry routing — eliminating manual scheduling and reducing administrative workload by ~50%. Implemented SEO/schema markup, Google My Business setup, and mobile-first design.</div>
+              <div class="ps"><span class="sc">Next.js</span><span class="sc">Node.js</span><span class="sc">Google Calendar API</span><span class="sc">Stripe</span><span class="sc">Vercel</span><span class="sc">WhatsApp API</span></div>
+            </div>
+            <div class="pi">
+              <button class="rm-btn" onclick="rmEl(this,'.pi')">× Remove</button>
+              <div class="pn" contenteditable="false">ICT Desk — AI Trading Suite</div>
+              <div class="pm" contenteditable="false">Personal Project · 2024 – Present · <a href="https://ictdesk.vercel.app" target="_blank" style="color:var(--accent);text-decoration:none;">ictdesk.vercel.app</a></div>
+              <div class="pd" contenteditable="false">Full-featured single-page trading web application integrated with the Anthropic API for AI-powered chart analysis. Features live session timers, trade journal, risk calculator, backtest logger with equity curve, Pine Script alert generator, and real-time candle scanner via Twelve Data API. Deployed to Vercel with GitHub CI.</div>
+              <div class="ps"><span class="sc">JavaScript</span><span class="sc">Anthropic API</span><span class="sc">Twelve Data API</span><span class="sc">Vercel</span><span class="sc">GitHub Actions</span></div>
+            </div>
+            <div class="pi">
+              <button class="rm-btn" onclick="rmEl(this,'.pi')">× Remove</button>
+              <div class="pn" contenteditable="false">NexaPOS — Multi-Tenant SaaS POS</div>
+              <div class="pm" contenteditable="false">Personal Project · 2024</div>
+              <div class="pd" contenteditable="false">Built a multi-tenant SaaS point-of-sale system with role-based access control, AWS infrastructure, Docker containerisation, and a full CI/CD pipeline using GitHub Actions.</div>
+              <div class="ps"><span class="sc">AWS</span><span class="sc">Docker</span><span class="sc">GitHub Actions</span><span class="sc">Node.js</span><span class="sc">React</span></div>
             </div>
             <div class="pi">
               <button class="rm-btn" onclick="rmEl(this,'.pi')">× Remove</button>
               <div class="pn" contenteditable="false">Waste Classification — Kaggle Competition</div>
               <div class="pm" contenteditable="false">Aug 2024 – Nov 2024</div>
-              <div class="pd" contenteditable="false">Fine-tuned CNN architectures (VGG16, MobileNetV2, VGG19) for multi-class image classification. Applied data augmentation to address class imbalance. Improved F1-score by 18% over baseline through iterative model optimisation.</div>
+              <div class="pd" contenteditable="false">Fine-tuned CNN architectures (VGG16, MobileNetV2, VGG19) for multi-class image classification. Applied data augmentation to address class imbalance and improved F1-score by 18% over baseline through iterative model optimisation.</div>
               <div class="ps"><span class="sc">Python</span><span class="sc">TensorFlow</span><span class="sc">Keras</span><span class="sc">VGG16</span><span class="sc">CNN</span></div>
             </div>
           </div>
@@ -319,44 +362,48 @@ body.editing #eb{display:block}
 
       <!-- VOLUNTEERING -->
       <div class="card">
-        <div class="ch"><div class="ct"><span class="ci">🤝</span> Volunteering</div></div>
+        <div class="ch"><div class="ct"><span class="ci">◈</span> Volunteering</div></div>
         <div class="cb">
           <div class="vi">
             <div class="er">
-              <div style="font-size:14px;font-weight:700;color:var(--navy);" contenteditable="false">Carevan Blacktown Inc &amp; CatholicCare Western Sydney</div>
+              <div style="font-size:14px;font-weight:700;color:var(--text);" contenteditable="false">Carevan Blacktown Inc &amp; CatholicCare Western Sydney</div>
               <div class="ed" contenteditable="false">Jun – Dec 2024</div>
             </div>
-            <p style="font-size:13px;color:var(--slate);margin-top:5px;line-height:1.7;" contenteditable="false">Contributed to weekly community meal services, food hamper distribution, and family support programs.</p>
+            <p style="font-size:13px;color:var(--text2);margin-top:6px;line-height:1.8;" contenteditable="false">Contributed to weekly community meal services, food hamper distribution, and family support programs.</p>
           </div>
         </div>
       </div>
+
     </div>
 
     <!-- SIDEBAR -->
     <div class="sidebar">
+
       <div class="card">
-        <div class="ch"><div class="ct"><span class="ci">📬</span> Contact</div></div>
+        <div class="ch"><div class="ct"><span class="ci">◈</span> Contact</div></div>
         <div class="cb">
           <div class="cr"><div class="cric">✉</div><div><div class="crl">Email</div><div class="crv" id="sb-email"></div></div></div>
-          <div class="cr"><div class="cric">📱</div><div><div class="crl">Phone</div><div class="crv" contenteditable="false">+61 491 296 105</div></div></div>
           <div class="cr"><div class="cric">📍</div><div><div class="crl">Location</div><div class="crv" contenteditable="false">Sydney, NSW, Australia</div></div></div>
-          <div class="cr"><div class="cric">🔗</div><div><div class="crl">LinkedIn</div><div class="crv"><a href="https://www.linkedin.com/in/hiriharan-kugadhaas-433035275" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;font-size:12px;font-weight:500;">linkedin.com/in/hiriharan-kugadhaas</a></div></div></div>
+          <div class="cr"><div class="cric">🔗</div><div><div class="crl">LinkedIn</div><div class="crv"><a href="https://www.linkedin.com/in/hiriharan-kugadhaas-433035275" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-size:12px;font-weight:500;">linkedin.com/in/hiriharan-kugadhaas</a></div></div></div>
+          <div class="cr"><div class="cric">⌥</div><div><div class="crl">GitHub</div><div class="crv"><a href="https://github.com/Hiriharan" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-size:12px;font-weight:500;">github.com/Hiriharan</a></div></div></div>
+          <div class="cr"><div class="cric">🌐</div><div><div class="crl">Portfolio</div><div class="crv"><a href="https://hiri-portfolio.vercel.app" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-size:12px;font-weight:500;">hiri-portfolio.vercel.app</a></div></div></div>
         </div>
       </div>
 
       <div class="card">
-        <div class="ch"><div class="ct"><span class="ci">⚡</span> Technical Skills</div></div>
+        <div class="ch"><div class="ct"><span class="ci">◈</span> Technical Skills</div></div>
         <div class="cb" id="skills-body">
-          <div class="sg"><div class="sgl">Cloud &amp; Infrastructure</div><div class="stags"><span class="stag">Azure</span><span class="stag">AWS</span><span class="stag">GCP</span><span class="stag">IAM</span><span class="stag">Virtual Machines</span><span class="stag">Cloud Networking</span><button class="atb" onclick="addTag(this)">+ Add</button></div></div>
-          <div class="sg"><div class="sgl">DevOps &amp; Automation</div><div class="stags"><span class="stag">Docker</span><span class="stag">Terraform</span><span class="stag">GitHub Actions</span><span class="stag">Git</span><span class="stag">Linux Shell</span><button class="atb" onclick="addTag(this)">+ Add</button></div></div>
-          <div class="sg"><div class="sgl">Programming &amp; Data</div><div class="stags"><span class="stag">Python</span><span class="stag">SQL</span><span class="stag">Flask</span><span class="stag">ASP.NET</span><span class="stag">Pandas</span><span class="stag">Scikit-learn</span><button class="atb" onclick="addTag(this)">+ Add</button></div></div>
-          <div class="sg"><div class="sgl">Cybersecurity</div><div class="stags"><span class="stag">Wireshark</span><span class="stag">Kali Linux</span><span class="stag">Metasploit</span><span class="stag">Penetration Testing</span><button class="atb" onclick="addTag(this)">+ Add</button></div></div>
+          <div class="sg"><div class="sgl">Cloud &amp; Infrastructure</div><div class="stags"><span class="stag">Azure</span><span class="stag">AWS</span><span class="stag">GCP</span><span class="stag">IAM</span><span class="stag">EC2</span><span class="stag">ECS</span><span class="stag">Cloud Networking</span><button class="atb" onclick="addTag(this)">+ Add</button></div></div>
+          <div class="sg"><div class="sgl">DevOps &amp; Automation</div><div class="stags"><span class="stag">Docker</span><span class="stag">Terraform</span><span class="stag">GitHub Actions</span><span class="stag">Git</span><span class="stag">Linux Shell</span><span class="stag">Vercel</span><span class="stag">Railway</span><button class="atb" onclick="addTag(this)">+ Add</button></div></div>
+          <div class="sg"><div class="sgl">Full-Stack</div><div class="stags"><span class="stag">Next.js</span><span class="stag">React</span><span class="stag">Node.js</span><span class="stag">Express</span><span class="stag">TypeScript</span><span class="stag">ASP.NET</span><button class="atb" onclick="addTag(this)">+ Add</button></div></div>
+          <div class="sg"><div class="sgl">Languages &amp; Data</div><div class="stags"><span class="stag">Python</span><span class="stag">JavaScript</span><span class="stag">SQL</span><span class="stag">Pandas</span><span class="stag">Scikit-learn</span><span class="stag">TensorFlow</span><button class="atb" onclick="addTag(this)">+ Add</button></div></div>
+          <div class="sg"><div class="sgl">Cybersecurity</div><div class="stags"><span class="stag">Wireshark</span><span class="stag">Kali Linux</span><span class="stag">Metasploit</span><span class="stag">OWASP Top 10</span><span class="stag">SSH Hardening</span><button class="atb" onclick="addTag(this)">+ Add</button></div></div>
           <div class="sg"><div class="sgl">Networking</div><div class="stags"><span class="stag">TCP/IP</span><span class="stag">DNS</span><span class="stag">DHCP</span><span class="stag">Subnetting</span><button class="atb" onclick="addTag(this)">+ Add</button></div></div>
         </div>
       </div>
 
       <div class="card">
-        <div class="ch"><div class="ct"><span class="ci">🎓</span> Education</div></div>
+        <div class="ch"><div class="ct"><span class="ci">◈</span> Education</div></div>
         <div class="cb" id="edu-list">
           <div class="edui">
             <button class="rm-btn" style="top:6px;" onclick="rmEl(this,'.edui')">× Remove</button>
@@ -378,17 +425,17 @@ body.editing #eb{display:block}
       </div>
 
       <div class="card">
-        <div class="ch"><div class="ct"><span class="ci">🏅</span> Certifications</div></div>
+        <div class="ch"><div class="ct"><span class="ci">◈</span> Certifications</div></div>
         <div class="cb">
           <div id="cert-list">
             <div class="certi"><button class="rm-btn" style="top:8px;" onclick="rmEl(this,'.certi')">× Remove</button><div class="cdot da"></div><div class="cn" contenteditable="false">Azure Fundamentals (AZ-900)</div><div class="cs" contenteditable="false">In Progress · 2026</div></div>
-            <div class="certi"><button class="rm-btn" style="top:8px;" onclick="rmEl(this,'.certi')">× Remove</button><div class="cdot da"></div><div class="cn" contenteditable="false">Ethical Hacking</div><div class="cs" contenteditable="false">In Progress · 2026</div></div>
+            <div class="certi"><button class="rm-btn" style="top:8px;" onclick="rmEl(this,'.certi')">× Remove</button><div class="cdot dg"></div><div class="cn" contenteditable="false">Responsible AI Principles</div><div class="cs" contenteditable="false">Google Cloud · 2025</div></div>
           </div>
           <button class="add-btn" onclick="addCert()">+ Add Certification</button>
         </div>
       </div>
-    </div>
 
+    </div>
   </div>
 </div>
 
@@ -400,45 +447,81 @@ body.editing #eb{display:block}
     </div>
     <div class="rp">
       <div class="rh">
-        <div class="rn">Hiriharan Kugadhaas</div>
-        <div class="rr">Cloud &amp; Security Engineer — Graduate</div>
-        <div class="rcl">
-          <span>✉ <span id="rv-email"></span></span>
-          <span>📱 +61 491 296 105</span>
-          <span>📍 Sydney, Australia</span>
-          <span>🔗 linkedin.com/in/hiriharan-kugadhaas-433035275</span>
+        <div class="rh-left">
+          <div class="rn">Hiriharan Kugadhaas</div>
+          <div class="rr">Cloud &amp; Security Engineer — Graduate</div>
+          <div class="rcl">
+            <span id="rv-email-wrap">✉ <span id="rv-email"></span></span>
+            <span>📍 Sydney, Australia</span>
+            <span>🔗 linkedin.com/in/hiriharan-kugadhaas-433035275</span>
+            <span>⌥ github.com/Hiriharan</span>
+          </div>
         </div>
       </div>
 
       <div class="rs">
         <div class="rst">Professional Summary</div>
-        <p style="font-size:12.5px;color:var(--slate);line-height:1.85;" contenteditable="false">IT graduate specialising in Security and Cloud Engineering with hands-on experience deploying cloud-native applications across GCP, AWS, and Azure. Proven ability to build, automate, and secure infrastructure through academic projects and real-world IT support roles. Currently completing Microsoft Azure Fundamentals (AZ-900) and Ethical Hacking certifications. Looking to bring skills in Python, Docker, Terraform, CI/CD pipelines, and Linux-based systems to a graduate engineering or cloud infrastructure role.</p>
+        <p style="font-size:12.5px;color:var(--text2);line-height:1.85;" contenteditable="false">Security-focused Cloud Engineer with a Bachelor of IT (Security &amp; Cloud Engineering) from Australian Catholic University. Proven track record in delivering full-stack platforms and AI-integrated applications — notably reducing operational workloads for RR Transport by 50% through digital transformation, and achieving ~89% ML classification accuracy on a GCP-hosted cybersecurity detection system. Hands-on experience with GCP, AWS, and Azure, and a strong foundation across Python, JavaScript, Next.js, Docker, Terraform, and CI/CD pipelines. Currently completing Microsoft Azure Fundamentals (AZ-900).</p>
       </div>
 
       <div class="rs">
         <div class="rst">Work Experience</div>
-        <div style="margin-bottom:12px;"><div class="reh"><div class="ret" contenteditable="false">MHE Operator</div><div class="red" contenteditable="false">Dec 2025 – Present</div></div><div class="rec" contenteditable="false">DHL Supply Chain · Sydney, AU</div><ul class="rbl"><li contenteditable="false">Operate forklift and MHE equipment maintaining strict safety and compliance standards.</li><li contenteditable="false">Collaborate with QA team to ensure stock accuracy and support time-critical distribution workflows.</li></ul></div>
-        <div style="margin-bottom:12px;"><div class="reh"><div class="ret" contenteditable="false">IT Support Technician</div><div class="red" contenteditable="false">Jan 2025 – Nov 2025</div></div><div class="rec" contenteditable="false">National Welding and Industrial Supplies · Sydney, AU</div><ul class="rbl"><li contenteditable="false">Provided onsite IT support maintaining near-zero downtime across 20+ workstations.</li><li contenteditable="false">Installed and configured workstations, printers, and networking equipment; resolved faults independently.</li><li contenteditable="false">Assisted with infrastructure support and inventory systems, improving operational efficiency.</li></ul></div>
-        <div style="margin-bottom:12px;"><div class="reh"><div class="ret" contenteditable="false">Operations Contractor</div><div class="red" contenteditable="false">Aug 2023 – Nov 2025</div></div><div class="rec" contenteditable="false">Woolworths Group (via ARA) · Sydney, AU</div><ul class="rbl"><li contenteditable="false">Supervised daily site operations and provided low-level IT support including device troubleshooting for retail staff.</li></ul></div>
-        <div><div class="reh"><div class="ret" contenteditable="false">Frontline Sales &amp; IT Support Trainee</div><div class="red" contenteditable="false">Mar 2021 – Dec 2022</div></div><div class="rec" contenteditable="false">Chilaw Vision</div><ul class="rbl"><li contenteditable="false">Delivered customer-facing IT product support and resolved hardware and network issues.</li><li contenteditable="false">Maintained up-to-date product knowledge to provide accurate technical guidance.</li></ul></div>
+        <div style="margin-bottom:14px;">
+          <div class="reh"><div class="ret" contenteditable="false">IT Support Technician</div><div class="red" contenteditable="false">Jan 2025 – Nov 2025</div></div>
+          <div class="rec" contenteditable="false">National Welding and Industrial Supplies · Sydney, AU</div>
+          <ul class="rbl">
+            <li contenteditable="false">Maintained near-zero downtime for 20+ workstations providing onsite hardware and Windows-based systems support.</li>
+            <li contenteditable="false">Configured networking equipment and resolved system faults independently to improve warehouse operational efficiency.</li>
+            <li contenteditable="false">Assisted with infrastructure support and inventory systems, resolving technical issues with minimal supervision.</li>
+          </ul>
+        </div>
+        <div style="margin-bottom:14px;">
+          <div class="reh"><div class="ret" contenteditable="false">MHE Operator</div><div class="red" contenteditable="false">Dec 2025 – Present</div></div>
+          <div class="rec" contenteditable="false">DHL Supply Chain · Sydney, AU</div>
+          <ul class="rbl">
+            <li contenteditable="false">Operate forklift and MHE equipment maintaining strict safety and compliance standards in a high-throughput logistics environment.</li>
+            <li contenteditable="false">Collaborate with QA team to ensure stock accuracy and support time-critical distribution workflows.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="reh"><div class="ret" contenteditable="false">Frontline Sales &amp; IT Support Trainee</div><div class="red" contenteditable="false">Mar 2021 – Dec 2022</div></div>
+          <div class="rec" contenteditable="false">Chilaw Vision</div>
+          <ul class="rbl">
+            <li contenteditable="false">Resolved hardware and network issues while providing technical guidance on consumer and business IT products.</li>
+            <li contenteditable="false">Maintained up-to-date product knowledge to deliver accurate technical support.</li>
+          </ul>
+        </div>
       </div>
 
       <div class="rs">
         <div class="rst">Key Projects</div>
-        <div style="margin-bottom:10px;"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;"><strong style="font-size:13px;color:var(--navy);" contenteditable="false">AI-Powered Cybersecurity Detection System</strong><span style="font-size:11px;color:var(--blue);font-weight:600;" contenteditable="false">GCP · Flask · Python · ML</span></div><ul class="rbl" style="margin-top:4px;"><li contenteditable="false">Flask-based real-time network dashboard on GCP handling 10,000+ simulated events; ML models achieved ~89% accuracy.</li><li contenteditable="false">Automated deployment pipeline reduced setup time by ~60%; integrated SOC-style alert generation.</li></ul></div>
-        <div style="margin-bottom:10px;"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;"><strong style="font-size:13px;color:var(--navy);" contenteditable="false">Online Tutoring Web Platform</strong><span style="font-size:11px;color:var(--blue);font-weight:600;" contenteditable="false">ASP.NET · SQL · Netlify</span></div><ul class="rbl" style="margin-top:4px;"><li contenteditable="false">Full-stack responsive web app with role-based access control and OWASP-compliant authentication; deployed on Netlify.</li></ul></div>
-        <div><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;"><strong style="font-size:13px;color:var(--navy);" contenteditable="false">Waste Classification — Kaggle Competition</strong><span style="font-size:11px;color:var(--blue);font-weight:600;" contenteditable="false">Python · TensorFlow · CNN</span></div><ul class="rbl" style="margin-top:4px;"><li contenteditable="false">Fine-tuned VGG16, MobileNetV2, VGG19; improved F1-score by 18% over baseline through iterative optimisation.</li></ul></div>
+        <div style="margin-bottom:11px;">
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;margin-bottom:4px;"><strong style="font-size:13px;color:var(--text);" contenteditable="false">Scanlytics — AI Cybersecurity Detection System</strong><span style="font-size:11px;color:var(--accent);font-weight:600;" contenteditable="false">GCP · Python · ML · Flask</span></div>
+          <ul class="rbl"><li contenteditable="false">ML-powered threat detection platform on GCP achieving ~89% accuracy; end-to-end pipelines using Cloud Functions, BigQuery, and Cloud Storage.</li><li contenteditable="false">Automated CI/CD deployment pipeline reduced setup time by ~60%; integrated SOC-style real-time alert generation.</li></ul>
+        </div>
+        <div style="margin-bottom:11px;">
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;margin-bottom:4px;"><strong style="font-size:13px;color:var(--text);" contenteditable="false">RR Transport — Business Automation &amp; Web Platform</strong><span style="font-size:11px;color:var(--accent);font-weight:600;" contenteditable="false">Next.js · Stripe · GCalendar API</span></div>
+          <ul class="rbl"><li contenteditable="false">Production Next.js platform replacing manual operations; Google Calendar API integration reduced admin workload by ~50%.</li><li contenteditable="false">Automated payment processing via Stripe and WhatsApp enquiry routing for a registered Australian business.</li></ul>
+        </div>
+        <div style="margin-bottom:11px;">
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;margin-bottom:4px;"><strong style="font-size:13px;color:var(--text);" contenteditable="false">ICT Desk — AI Trading Suite</strong><span style="font-size:11px;color:var(--accent);font-weight:600;" contenteditable="false">JavaScript · Anthropic API · Vercel</span></div>
+          <ul class="rbl"><li contenteditable="false">Full-featured trading web app with Anthropic API chart analysis, Twelve Data live scanning, risk calculator, and trade journal. Deployed via GitHub to Vercel.</li></ul>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;margin-bottom:4px;"><strong style="font-size:13px;color:var(--text);" contenteditable="false">Waste Classification — Kaggle Competition</strong><span style="font-size:11px;color:var(--accent);font-weight:600;" contenteditable="false">Python · TensorFlow · CNN</span></div>
+          <ul class="rbl"><li contenteditable="false">Fine-tuned VGG16, MobileNetV2, VGG19 architectures; improved F1-score by 18% over baseline through iterative optimisation.</li></ul>
+        </div>
       </div>
 
       <div class="rs">
         <div class="rst">Technical Skills</div>
         <div class="rsg">
-          <div><div class="rsc">Cloud &amp; Infrastructure</div><div class="rsv" contenteditable="false">Azure, AWS, GCP, IAM, Virtual Machines, Cloud Networking</div></div>
-          <div><div class="rsc">DevOps &amp; Automation</div><div class="rsv" contenteditable="false">Docker, Terraform, GitHub Actions (CI/CD), Git, Linux Shell</div></div>
-          <div><div class="rsc">Programming &amp; Data</div><div class="rsv" contenteditable="false">Python, SQL, Flask, ASP.NET, Pandas, NumPy, Scikit-learn</div></div>
-          <div><div class="rsc">Cybersecurity</div><div class="rsv" contenteditable="false">Wireshark, Kali Linux, Metasploit, Penetration Testing</div></div>
+          <div><div class="rsc">Cloud &amp; Infrastructure</div><div class="rsv" contenteditable="false">Azure, AWS (EC2, IAM, ECS), GCP, Cloud Networking, Virtual Machines</div></div>
+          <div><div class="rsc">DevOps &amp; Automation</div><div class="rsv" contenteditable="false">Docker, Terraform, GitHub Actions (CI/CD), Git, Linux Shell, Vercel, Railway</div></div>
+          <div><div class="rsc">Full-Stack</div><div class="rsv" contenteditable="false">Next.js, React, Node.js, Express, TypeScript, JavaScript, ASP.NET</div></div>
+          <div><div class="rsc">Languages &amp; Data</div><div class="rsv" contenteditable="false">Python, SQL, Pandas, NumPy, Scikit-learn, TensorFlow</div></div>
+          <div><div class="rsc">Cybersecurity</div><div class="rsv" contenteditable="false">Wireshark, Kali Linux, Metasploit, OWASP Top 10, SSH Hardening, Threat Detection</div></div>
           <div><div class="rsc">Networking</div><div class="rsv" contenteditable="false">TCP/IP, DNS, DHCP, Subnetting, Network Troubleshooting</div></div>
-          <div><div class="rsc">Operating Systems</div><div class="rsv" contenteditable="false">Linux (Ubuntu / Kali), Windows Server</div></div>
         </div>
       </div>
 
@@ -451,20 +534,19 @@ body.editing #eb{display:block}
 
       <div class="rs" style="margin-bottom:0">
         <div class="rst">Certifications</div>
-        <p style="font-size:12.5px;color:var(--slate);" contenteditable="false">Microsoft Azure Fundamentals (AZ-900) — In Progress 2026 &nbsp;|&nbsp; Ethical Hacking — In Progress 2026</p>
+        <p style="font-size:12.5px;color:var(--text2);" contenteditable="false">Microsoft Azure Fundamentals (AZ-900) — In Progress 2026 &nbsp;|&nbsp; Responsible AI Principles — Google Cloud 2025</p>
       </div>
+
     </div>
   </div>
 </div>
 
 <script>
-// Set email safely via JS (bypasses any email obfuscation)
 var _e = ['hiriharank','outlook.com'].join('@');
-document.getElementById('sb-email').innerHTML = '<a href="mailto:'+_e+'" style="color:var(--navy);text-decoration:none;font-size:12px;font-weight:500;">'+_e+'</a>';
+document.getElementById('sb-email').innerHTML = '<a href="mailto:'+_e+'" style="color:var(--accent);text-decoration:none;font-size:12px;font-weight:500;">'+_e+'</a>';
 document.getElementById('rv-email').textContent = _e;
 document.getElementById('contact-btn').onclick = function(){ window.location.href = 'mailto:' + _e; };
 
-// TAB SWITCHING
 function showTab(name) {
   document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
   document.querySelectorAll('.tb').forEach(function(b){ b.classList.remove('active'); });
@@ -472,9 +554,9 @@ function showTab(name) {
   document.getElementById('panel-' + name).classList.add('active');
   document.getElementById('tb-' + name).classList.add('active');
   document.getElementById('nb-' + name).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
-// SECRET EDIT MODE (Ctrl+Shift+E)
 document.addEventListener('keydown', function(e){
   if(e.ctrlKey && e.shiftKey && e.key === 'E') toggleEdit();
 });
@@ -484,18 +566,17 @@ function toggleEdit(){
   if(!on){ saveAll(); showToast(); }
 }
 
-// SAVE / LOAD
 function saveAll(){
   var d = {};
   ['exp-list','proj-list','edu-list','cert-list','skills-body'].forEach(function(id){
     var el = document.getElementById(id); if(el) d[id] = el.innerHTML;
   });
   document.querySelectorAll('[contenteditable]').forEach(function(el,i){ d['ce'+i] = el.innerHTML; });
-  try{ localStorage.setItem('hiri5', JSON.stringify(d)); }catch(e){}
+  try{ localStorage.setItem('hiri6', JSON.stringify(d)); }catch(e){}
 }
 function loadAll(){
   try{
-    var raw = localStorage.getItem('hiri5'); if(!raw) return;
+    var raw = localStorage.getItem('hiri6'); if(!raw) return;
     var d = JSON.parse(raw);
     ['exp-list','proj-list','edu-list','cert-list','skills-body'].forEach(function(id){
       var el = document.getElementById(id); if(el && d[id]) el.innerHTML = d[id];
