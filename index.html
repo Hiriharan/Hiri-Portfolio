@@ -188,24 +188,51 @@ body.editing #eb{display:block}
 #toast{position:fixed;bottom:24px;right:24px;background:var(--green);color:#fff;font-size:12px;font-weight:600;padding:10px 18px;border-radius:8px;z-index:999;opacity:0;transform:translateY(8px);transition:all .25s;pointer-events:none}
 #toast.show{opacity:1;transform:translateY(0)}
 
-/* PRINT: prints the resume only, A4, dark text on white */
+/* PRINT: resume only, classic A4 layout (serif, black text, ruled section headings) */
 @page{size:A4;margin:0}
 @media print{
-  :root{--bg:#fff;--bg2:#fff;--bg3:#fff;--surface:#fff;--text:#0d0f14;--text2:#334155;--text3:#64748b;--accent:#1d4ed8;--border:#cbd5e1;--border2:#cbd5e1}
-  html,body{background:#fff!important;color:#0d0f14;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  nav,.hero,.tab-bar,.rv-actions,#eb,#toast,.rm-btn,.add-btn,.atb{display:none!important}
+  :root{--bg:#fff;--bg2:#fff;--bg3:#fff;--surface:#fff;--text:#000;--text2:#000;--text3:#555;--accent:#000;--border:#000;--border2:#000}
+  html,body{background:#fff!important;color:#000}
+  nav,.hero,.tab-bar,.rv-actions,#eb,#toast,.rm-btn,.add-btn,.atb,.rr,.ico{display:none!important}
   #panel-portfolio{display:none!important}
   #panel-resume{display:block!important}
   .rv-layout{margin:0;padding:0;max-width:none}
-  .rp{box-shadow:none;border:none;border-radius:0;padding:14mm 16mm;max-width:none;background:#fff;-webkit-box-decoration-break:clone;box-decoration-break:clone}
-  .rs{margin-bottom:14px}
-  .rbl li{line-height:1.55}
+  .rp{box-shadow:none;border:none;border-radius:0;padding:10mm 13mm;max-width:none;background:#fff;-webkit-box-decoration-break:clone;box-decoration-break:clone;font-family:"Liberation Serif","Times New Roman",Times,serif;font-size:10pt;line-height:1.22;color:#000}
+  .rp *{font-family:inherit!important}
+  .rh{display:block;text-align:center;border:none;padding:0;margin:0 0 4px}
+  .rn{font-size:17pt;font-weight:700;text-transform:uppercase;letter-spacing:0;color:#000!important;margin:0}
+  .rcl{display:block;font-size:9.5pt;color:#555!important;margin-top:1px}
+  .rcl>span+span::before{content:"  |  ";white-space:pre}
+  .rs{margin:0 0 3px}
+  .rst{font-size:11pt;font-weight:700;letter-spacing:0;color:#000!important;border-bottom:1px solid #000;padding:0 0 1px;margin:6px 0 3px;display:block}
+  .rst::before{display:none}
+  .rs p{font-size:10pt!important;color:#000!important;line-height:1.22!important;margin:0}
+  .rs>div:has(>.reh){display:flex;flex-wrap:wrap;align-items:baseline;margin-bottom:2px!important}
+  .reh{display:contents}
+  .ret{order:1;font-size:10pt;font-weight:700;color:#000!important}
+  .rec{order:2;font-size:10pt;font-weight:700;color:#000!important;opacity:1;margin:0}
+  .rec::before{content:"\00a0|\00a0"}
+  .red{order:3;margin-left:auto;margin-right:20mm;background:none;border:none;padding:0;font-style:italic;font-size:9.5pt;color:#555!important}
+  .rs>div>.rbl{order:4;width:100%}
+  .rbl{margin:0 0 1px}
+  .rbl li{font-size:10pt;color:#000!important;line-height:1.22;padding-left:22px}
+  .rbl li::before{content:"\2022";color:#000;font-size:10pt;left:10px;top:0}
+  .rs>div[style]{margin-bottom:2px!important}
+  .rs strong{font-size:10pt!important;color:#000!important}
+  .rs strong+span{font-size:9.5pt!important;font-style:italic;font-weight:400!important;color:#555!important;margin-right:20mm}
+  .rs>div>div[style]{margin-bottom:0!important}
+  .rsg{display:block}
+  .rsg>div{position:relative;padding-left:22px;font-size:10pt}
+  .rsg>div::before{content:"\2022";position:absolute;left:10px}
+  .rsc,.rsv{display:inline;font-size:10pt;color:#000!important;text-transform:none;letter-spacing:0;font-weight:400;margin:0}
+  .rsc::after{content:": "}
+  .rer{display:flex;margin-bottom:1px}
+  .rer>div>div{display:inline}
+  .red2,.res{font-size:10pt;font-weight:700;color:#000!important;opacity:1}
+  .res::before{content:" \2014  "}
+  .rey{margin-left:auto;margin-right:20mm;font-style:italic;font-size:9.5pt;color:#555!important}
   .rs>div,.rer,.rsg>div{break-inside:avoid;page-break-inside:avoid}
   .rst{break-after:avoid;page-break-after:avoid}
-  .rn,.ret,.red2{color:#0d0f14!important}
-  .rec,.res,.rr,.rst{color:#1d4ed8!important;opacity:1}
-  .rcl,.rbl li,.rsv,.rp p{color:#334155!important}
-  .red,.rey,.rsc{background:none;border:none;color:#64748b!important}
   a{color:inherit;text-decoration:none}
 }
 
@@ -487,10 +514,10 @@ body.editing #eb{display:block}
           <div class="rn">Hiriharan Kugadhaas</div>
           <div class="rr">Cloud &amp; Security Engineer — Graduate</div>
           <div class="rcl">
-            <span id="rv-email-wrap">✉ <span id="rv-email"></span></span>
-            <span>📍 Sydney, Australia</span>
-            <span>🔗 linkedin.com/in/hiriharan-kugadhaas-433035275</span>
-            <span>⌥ github.com/Hiriharan</span>
+            <span id="rv-email-wrap"><span class="ico">✉ </span><span id="rv-email"></span></span>
+            <span><span class="ico">📍 </span>Sydney, Australia</span>
+            <span><span class="ico">🔗 </span>linkedin.com/in/hiriharan-kugadhaas-433035275</span>
+            <span><span class="ico">⌥ </span>github.com/Hiriharan</span>
           </div>
         </div>
       </div>
